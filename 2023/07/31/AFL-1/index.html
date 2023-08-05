@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AFL-1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="AFL简介  tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&quot;$HOME&#x2F;fuzz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFL-1">
+<meta property="og:url" content="http://example.com/2023/07/31/AFL-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AFL简介  tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&quot;$HOME&#x2F;fuzz">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230731140037021.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230731140207486.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230731141408035.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230731184215275.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230804221002348.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230804165131314.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230804165910916.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230804172159911.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Local\Temp\WeChat Files\9d64cbc5501f607c00d5f3839f3a1d8.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Local\Temp\WeChat Files\d2c779b1034bc010bebe3d9c7748119.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230805110110846.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230805110524898.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\Downloads\1.png">
+<meta property="og:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\Downloads\2.png">
+<meta property="article:published_time" content="2023-07-31T05:22:29.000Z">
+<meta property="article:modified_time" content="2023-08-05T11:45:01.605Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\%E6%9D%8E%E4%BD%B3%E8%89%BA\AppData\Roaming\Typora\typora-user-images\image-20230731140037021.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-AFL-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/31/AFL-1/" class="article-date">
+  <time class="dt-published" datetime="2023-07-31T05:22:29.000Z" itemprop="datePublished">2023-07-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AFL-1
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>AFL简介</p>
+<p><code> tar xvf afl-latest.tgz</code></p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140037021.png" alt="image-20230731140037021" style="zoom:80%;" />
+
+<p><code>cd afl-2.52b sudo make &amp;&amp; sudo make install</code></p>
+<p>执行完三条命令后</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140207486.png" alt="image-20230731140207486" style="zoom:80%;" />
+
+<p>可以看到afl成功下载</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731141408035.png" alt="image-20230731141408035" style="zoom:80%;" />
+
+<p>再下载XPDF</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731184215275.png" alt="image-20230731184215275" style="zoom:67%;" />
+
+<p>后面出现问题 改成ubuntuFuzz继续做</p>
+<p>先下载afl</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804221002348.png" alt="image-20230804221002348" style="zoom:80%;" />
+
+<p>再下载xpdf</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165131314.png" style="zoom:67%;" />
+
+<p>执行<code>./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</code></p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165910916.png" alt="image-20230804165910916" style="zoom:67%;" />
+
+<p>下载几个文件进行验证</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804172159911.png" style="zoom:80%;" />
+
+<p>后面发现-s无法进行 于是检查发现需要下载afl++</p>
+<p>环境：</p>
+<p><code>sudo apt-get update sudo apt-get install -y build-essential python3-dev automake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools sudo apt-get install -y lld-11 llvm-11 llvm-11-dev clang-11 || sudo apt-get install -y lld llvm llvm-dev clang  sudo apt-get install -y gcc-$(gcc --version|head -n1|sed &#39;s/.* //&#39;|sed &#39;s/\..*//&#39;)-plugin-dev libstdc++-$(gcc --version|head -n1|sed &#39;s/.* //&#39;|sed &#39;s/\..*//&#39;)-dev</code></p>
+<p>检查并下载AFL++</p>
+<p><code>cd $HOME git clone https://github.com/AFLplusplus/AFLplusplus &amp;&amp; cd AFLplusplus export LLVM_CONFIG=&quot;llvm-config-11&quot; make distrib sudo make install</code></p>
+<p>下载成功</p>
+<p>使用AFL++编译器编译代码 首先清理没用的文件</p>
+<p><code>rm -r $HOME/fuzzing_xpdf/install cd $HOME/fuzzing_xpdf/xpdf-3.02/ make clean</code></p>
+<p>使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</p>
+<p><code>export LLVM_CONFIG=&quot;llvm-config-11&quot; CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot; make make install</code></p>
+<p>运行fuzzer</p>
+<p><code>AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1  afl-fuzz -i $HOME/fuzzing_xpdf/pdf_examples/ -o $HOME/fuzzing_xpdf/out/ -s 123 -- $HOME/fuzzing_xpdf/install/bin/pdftotext @@ $HOME/fuzzing_xpdf/output</code></p>
+<p>解释：-i 表示我们必须放置输入用例的目录 -o 表示 AFL + + 将存储变异文件的目录</p>
+<img src="C:\Users\李佳艺\AppData\Local\Temp\WeChat Files\9d64cbc5501f607c00d5f3839f3a1d8.png" alt="9d64cbc5501f607c00d5f3839f3a1d8" style="zoom: 67%;" />
+
+<p>等待找到漏洞</p>
+<img src="C:\Users\李佳艺\AppData\Local\Temp\WeChat Files\d2c779b1034bc010bebe3d9c7748119.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;" />
+
+<p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
+<p><img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110110846.png" alt="image-20230805110110846"></p>
+<p>可以看出再次使用xpdf运行该文件时错误是堆栈溢出</p>
+<p><img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110524898.png" alt="image-20230805110524898"></p>
+<p>再使用gdb调试</p>
+<p><img src="C:\Users\李佳艺\Downloads\1.png"></p>
+<p>运行后查看函数栈</p>
+<p><img src="C:\Users\李佳艺\Downloads\2.png"></p>
+<p>可以看出一直不停循环 本次漏洞CVE-2019-13288通过使程序中每个被调用的函数都在堆栈上分配一个堆栈帧，如果一个函数被递归调用太多次，就会导致堆栈内存耗尽和程序崩溃。</p>
+<p>漏洞修复<a target="_blank" rel="noopener" href="https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672">https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672</a></p>
+<p>详解：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40025866/article/details/127823491">https://blog.csdn.net/qq_40025866/article/details/127823491</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanx.net/fuzzing101-wp-1/">https://www.ruanx.net/fuzzing101-wp-1/</a> 关于复现更加详细的解释</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/31/AFL-1/" data-id="clkxy828o0000acu4hcgqfl2p" data-title="AFL-1" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">how to give a good research talk_The structure of paper in Systems</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/31/AFL-1/">AFL-1</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/">how to give a good research talk_The structure of paper in Systems</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/10/1/">1</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

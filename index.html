@@ -73,6 +73,102 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AFL-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/31/AFL-1/" class="article-date">
+  <time class="dt-published" datetime="2023-07-31T05:22:29.000Z" itemprop="datePublished">2023-07-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/07/31/AFL-1/">AFL-1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>AFL简介</p>
+<p><code> tar xvf afl-latest.tgz</code></p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140037021.png" alt="image-20230731140037021" style="zoom:80%;" />
+
+<p><code>cd afl-2.52b sudo make &amp;&amp; sudo make install</code></p>
+<p>执行完三条命令后</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140207486.png" alt="image-20230731140207486" style="zoom:80%;" />
+
+<p>可以看到afl成功下载</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731141408035.png" alt="image-20230731141408035" style="zoom:80%;" />
+
+<p>再下载XPDF</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731184215275.png" alt="image-20230731184215275" style="zoom:67%;" />
+
+<p>后面出现问题 改成ubuntuFuzz继续做</p>
+<p>先下载afl</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804221002348.png" alt="image-20230804221002348" style="zoom:80%;" />
+
+<p>再下载xpdf</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165131314.png" style="zoom:67%;" />
+
+<p>执行<code>./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</code></p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165910916.png" alt="image-20230804165910916" style="zoom:67%;" />
+
+<p>下载几个文件进行验证</p>
+<img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804172159911.png" style="zoom:80%;" />
+
+<p>后面发现-s无法进行 于是检查发现需要下载afl++</p>
+<p>环境：</p>
+<p><code>sudo apt-get update sudo apt-get install -y build-essential python3-dev automake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools sudo apt-get install -y lld-11 llvm-11 llvm-11-dev clang-11 || sudo apt-get install -y lld llvm llvm-dev clang  sudo apt-get install -y gcc-$(gcc --version|head -n1|sed &#39;s/.* //&#39;|sed &#39;s/\..*//&#39;)-plugin-dev libstdc++-$(gcc --version|head -n1|sed &#39;s/.* //&#39;|sed &#39;s/\..*//&#39;)-dev</code></p>
+<p>检查并下载AFL++</p>
+<p><code>cd $HOME git clone https://github.com/AFLplusplus/AFLplusplus &amp;&amp; cd AFLplusplus export LLVM_CONFIG=&quot;llvm-config-11&quot; make distrib sudo make install</code></p>
+<p>下载成功</p>
+<p>使用AFL++编译器编译代码 首先清理没用的文件</p>
+<p><code>rm -r $HOME/fuzzing_xpdf/install cd $HOME/fuzzing_xpdf/xpdf-3.02/ make clean</code></p>
+<p>使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</p>
+<p><code>export LLVM_CONFIG=&quot;llvm-config-11&quot; CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot; make make install</code></p>
+<p>运行fuzzer</p>
+<p><code>AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1  afl-fuzz -i $HOME/fuzzing_xpdf/pdf_examples/ -o $HOME/fuzzing_xpdf/out/ -s 123 -- $HOME/fuzzing_xpdf/install/bin/pdftotext @@ $HOME/fuzzing_xpdf/output</code></p>
+<p>解释：-i 表示我们必须放置输入用例的目录 -o 表示 AFL + + 将存储变异文件的目录</p>
+<img src="C:\Users\李佳艺\AppData\Local\Temp\WeChat Files\9d64cbc5501f607c00d5f3839f3a1d8.png" alt="9d64cbc5501f607c00d5f3839f3a1d8" style="zoom: 67%;" />
+
+<p>等待找到漏洞</p>
+<img src="C:\Users\李佳艺\AppData\Local\Temp\WeChat Files\d2c779b1034bc010bebe3d9c7748119.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;" />
+
+<p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
+<p><img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110110846.png" alt="image-20230805110110846"></p>
+<p>可以看出再次使用xpdf运行该文件时错误是堆栈溢出</p>
+<p><img src="C:\Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110524898.png" alt="image-20230805110524898"></p>
+<p>再使用gdb调试</p>
+<p><img src="C:\Users\李佳艺\Downloads\1.png"></p>
+<p>运行后查看函数栈</p>
+<p><img src="C:\Users\李佳艺\Downloads\2.png"></p>
+<p>可以看出一直不停循环 本次漏洞CVE-2019-13288通过使程序中每个被调用的函数都在堆栈上分配一个堆栈帧，如果一个函数被递归调用太多次，就会导致堆栈内存耗尽和程序崩溃。</p>
+<p>漏洞修复<a target="_blank" rel="noopener" href="https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672">https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672</a></p>
+<p>详解：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40025866/article/details/127823491">https://blog.csdn.net/qq_40025866/article/details/127823491</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanx.net/fuzzing101-wp-1/">https://www.ruanx.net/fuzzing101-wp-1/</a> 关于复现更加详细的解释</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/31/AFL-1/" data-id="clkxy828o0000acu4hcgqfl2p" data-title="AFL-1" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/" class="article-date">
@@ -152,6 +248,14 @@
 <p>部分概述。</p>
 <p>段落：根据需要进行分段。</p>
 <h2 id="结论-Conclusions"><a href="#结论-Conclusions" class="headerlink" title="结论(Conclusions)"></a>结论(<strong>Conclusions</strong>)</h2><p><u>【 1~1.5 pages】</u></p>
+<p>结论非常重要，不要期待读者记得你告诉他的所有事情</p>
+<p>拥有的一些陈述性定义，你现在可以介绍的更加具体。</p>
+<p>总体概述工作是关于什么的</p>
+<p>主要的结论和贡献</p>
+<p>重要的观点或者实用性的结论(比如你们的结论怎样在实际中帮助到他人或者其他研究者&#x2F;%)</p>
+<p>未来的工作，重新强调工作的重要性但不要输出自己的观点</p>
+<h2 id="参考文献-References"><a href="#参考文献-References" class="headerlink" title="参考文献(References)"></a>参考文献(<strong>References</strong>)</h2><p>需要正确完整并且准确</p>
+<h2 id="Appendices"><a href="#Appendices" class="headerlink" title="(Appendices)"></a>(<strong>Appendices</strong>)</h2><p><u>【按照需求】</u></p>
 
       
     </div>
@@ -295,6 +399,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/07/31/AFL-1/">AFL-1</a>
+          </li>
         
           <li>
             <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/">how to give a good research talk_The structure of paper in Systems</a>
