@@ -6,12 +6,12 @@
   
   <title>AFL-1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="01  AFL简介 tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&quot;$HOME&#x2F;f">
+  <meta name="description" content="01 实验过程0x1  AFL简介 tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AFL-1">
 <meta property="og:url" content="http://example.com/2023/07/31/AFL-1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="01  AFL简介 tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&quot;$HOME&#x2F;f">
+<meta property="og:description" content="01 实验过程0x1  AFL简介 tar xvf afl-latest.tgz   cd afl-2.52b sudo make &amp;&amp; sudo make install 执行完三条命令后   可以看到afl成功下载   再下载XPDF   后面出现问题 改成ubuntuFuzz继续做 先下载afl   再下载xpdf   执行.&#x2F;configure --prefix&#x3D;&amp;quot">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2023/08/05/ei42j3Np.png">
 <meta property="og:image" content="https://img1.imgtp.com/2023/08/05/IEpgbmN0.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://img1.imgtp.com/2023/08/05/wKxGdbzJ.png">
 <meta property="og:image" content="https://img1.imgtp.com/2023/08/05/rsicPbL8.png">
 <meta property="article:published_time" content="2023-07-31T05:22:29.000Z">
-<meta property="article:modified_time" content="2023-08-23T06:30:35.190Z">
+<meta property="article:modified_time" content="2023-08-23T06:47:40.400Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img1.imgtp.com/2023/08/05/ei42j3Np.png">
@@ -112,7 +112,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="01-AFL简介"><a href="#01-AFL简介" class="headerlink" title="01  AFL简介"></a>01  AFL简介</h2><p><code> tar xvf afl-latest.tgz</code></p>
+        <h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h3 id="0x1-AFL简介"><a href="#0x1-AFL简介" class="headerlink" title="0x1  AFL简介"></a>0x1  AFL简介</h3><p><code> tar xvf afl-latest.tgz</code></p>
 <img src="https://img1.imgtp.com/2023/08/05/ei42j3Np.png" alt="image-20230731140037021" style="zoom:80%;">
 
 <p><code>cd afl-2.52b sudo make &amp;&amp; sudo make install</code></p>
@@ -139,7 +139,7 @@
 <img src="https://img1.imgtp.com/2023/08/05/Sz9C8dyv.png" style="zoom:80%;">
 
 <p>后面发现-s无法进行 于是检查发现需要下载afl++</p>
-<h2 id="02-下载AFL"><a href="#02-下载AFL" class="headerlink" title="02 下载AFL++"></a>02 下载AFL++</h2><p>环境：</p>
+<h3 id="0x2-下载AFL"><a href="#0x2-下载AFL" class="headerlink" title="0x2 下载AFL++"></a>0x2 下载AFL++</h3><p>环境：</p>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> update</span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y build-essential python3-dev automake git flex bison libglib2.<span class="number">0</span>-dev libpixman-<span class="number">1</span>-dev python3-setuptools</span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y lld-<span class="number">11</span> llvm-<span class="number">11</span> llvm-<span class="number">11</span>-dev clang-<span class="number">11</span> || sudo apt-<span class="keyword">get</span> install -y lld llvm llvm-dev clang </span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y gcc-$(gcc --version|head -n1|sed <span class="comment">&#x27;s/.* //&#x27;|sed &#x27;s/\..*//&#x27;)-plugin-dev libstdc++-$(gcc --version|head -n1|sed &#x27;s/.* //&#x27;|sed &#x27;s/\..*//&#x27;)-dev</span></span><br></pre></td></tr></table></figure>
 
 <p>检查并下载AFL++</p>
@@ -149,9 +149,9 @@
 <p>使用AFL++编译器编译代码 首先清理没用的文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_xpdf/install</span><br><span class="line">cd $HOME/fuzzing_xpdf/xpdf-3.02/</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
 
-<h2 id="03-使用-afl-clang-fast-编译器构建-xpdf"><a href="#03-使用-afl-clang-fast-编译器构建-xpdf" class="headerlink" title="03 使用 afl-clang-fast 编译器构建 xpdf"></a>03 使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="0x3-使用-afl-clang-fast-编译器构建-xpdf"><a href="#0x3-使用-afl-clang-fast-编译器构建-xpdf" class="headerlink" title="0x3 使用 afl-clang-fast 编译器构建 xpdf"></a>0x3 使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
-<h2 id="04-模糊测试"><a href="#04-模糊测试" class="headerlink" title="04 模糊测试"></a>04 模糊测试</h2><p>运行fuzzer</p>
+<h3 id="0x4-模糊测试"><a href="#0x4-模糊测试" class="headerlink" title="0x4 模糊测试"></a>0x4 模糊测试</h3><p>运行fuzzer</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1  afl-fuzz -i $HOME/fuzzing_xpdf/pdf_examples/ -o $HOME/fuzzing_xpdf/out/ -s 123 -- $HOME/fuzzing_xpdf/install/bin/pdftotext @@ $HOME/fuzzing_xpdf/output</span><br></pre></td></tr></table></figure>
 
 <p>解释：-i 表示我们必须放置输入用例的目录 -o 表示 AFL + + 将存储变异文件的目录</p>
@@ -160,7 +160,7 @@
 <p>等待找到漏洞</p>
 <img src="https://img1.imgtp.com/2023/08/05/fVvfCSvd.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;">
 
-<h2 id="05-漏洞分析"><a href="#05-漏洞分析" class="headerlink" title="05 漏洞分析"></a>05 漏洞分析</h2><p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
+<h3 id="0x5-漏洞分析"><a href="#0x5-漏洞分析" class="headerlink" title="0x5 漏洞分析"></a>0x5 漏洞分析</h3><p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
 <p><img src="https://img1.imgtp.com/2023/08/05/Tr5PgXOp.png" alt="image-20230805110110846"></p>
 <p>可以看出再次使用xpdf运行该文件时错误是堆栈溢出</p>
 <p><img src="https://img1.imgtp.com/2023/08/05/jkbLJvBE.png" alt="image-20230805110524898"></p>
@@ -173,7 +173,7 @@
 <p>详解：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40025866/article/details/127823491">https://blog.csdn.net/qq_40025866/article/details/127823491</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ruanx.net/fuzzing101-wp-1/">https://www.ruanx.net/fuzzing101-wp-1/</a> 关于复现更加详细的解释</p>
-<h2 id="06-实验心得"><a href="#06-实验心得" class="headerlink" title="06 实验心得"></a>06 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_xpdf &amp;&amp; cd fuzzing_xpdf/</span><br></pre></td></tr></table></figure>
 
 <p>初始时更新环境基础工具如make,gcc</p>

@@ -302,14 +302,70 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>exercise-2</p>
-<p>堆溢出和越界读取</p>
-<p>1.构建并安装 libexif：</p>
-<p><code>cd libexif-libexif-0_6_14-release/ sudo apt-get install autopoint libtool gettext libpopt-dev autoreconf -fvi ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; make make install</code></p>
+<p>libexif </p>
+<h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h3 id="0x1-构建并安装-libexif"><a href="#0x1-构建并安装-libexif" class="headerlink" title="0x1.构建并安装 libexif"></a>0x1.构建并安装 libexif</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd libexif-libexif-0_6_14-release/</span><br><span class="line">sudo apt-get install autopoint libtool gettext libpopt-dev</span><br><span class="line">autoreconf -fvi</span><br><span class="line">./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>autoreconf -fvi 在软件项目中重新生成自动配置（Autoconf）和构建系统相关文件的命令</p>
+<h3 id="0x2-构建并安装-exif-命令行实用程序"><a href="#0x2-构建并安装-exif-命令行实用程序" class="headerlink" title="0x2 构建并安装 exif 命令行实用程序"></a>0x2 构建并安装 exif 命令行实用程序</h3><p>检查是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_libexif/install/bin/exif</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://img1.imgtp.com/2023/08/23/MQSTeVzh.png" alt="image-20230809151528275"></p>
+<p>进行exif示例创建 结果如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_libexif/install/bin/exif $HOME/fuzzing_libexif/exif-samples-master/jpg/Canon_40D_photoshop_import.jpg</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://img1.imgtp.com/2023/08/23/oulY3Hj7.png" alt="image-20230809152518785"></p>
-<p><code>afl-clang-lto</code> 使用了链接时间优化（Link-Time Optimization，简称LTO）的技术，可以在编译过程中对整个程序进行优化，提高模糊测试的效率和准确性。</p>
+<h3 id="0x3-作为编译器afl-clang-lto构建-libexif"><a href="#0x3-作为编译器afl-clang-lto构建-libexif" class="headerlink" title="0x3 作为编译器afl-clang-lto构建 libexif"></a>0x3 作为编译器<strong>afl-clang-lto</strong>构建 libexif</h3><p><code>afl-clang-lto</code> 使用了链接时间优化（Link-Time Optimization，简称LTO）的技术，可以在编译过程中对整个程序进行优化，提高模糊测试的效率和准确性。</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/U8rPe3il.png" alt="image-20230813204306294"></p>
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_libexif &amp;&amp; cd fuzzing_libexif/</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压 libexif-0.6.14</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/libexif/libexif/archive/refs/tags/libexif-0_6_14-release.tar.gz</span><br><span class="line">tar -xzvf libexif-0_6_14-release.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 libexif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd libexif-libexif-0_6_14-release/</span><br><span class="line">sudo apt-get install autopoint libtool gettext libpopt-dev</span><br><span class="line">autoreconf -fvi</span><br><span class="line">./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压缩 exif 命令行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_libexif</span><br><span class="line">wget https://github.com/libexif/exif/archive/refs/tags/exif-0_6_15-release.tar.gz</span><br><span class="line">tar -xzvf exif-0_6_15-release.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 exif 命令行实用程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd exif-exif-0_6_15-release/</span><br><span class="line">autoreconf -fvi</span><br><span class="line">./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; PKG_CONFIG_PATH=$HOME/fuzzing_libexif/install/lib/pkgconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>测试exif是否安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_libexif/install/bin/exif</span><br></pre></td></tr></table></figure>
+
+<p>下载示例图像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_libexif</span><br><span class="line">wget https://github.com/ianare/exif-samples/archive/refs/heads/master.zip</span><br><span class="line">unzip master.zip</span><br></pre></td></tr></table></figure>
+
+<p>测试运行exif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_libexif/install/bin/exif $HOME/fuzzing_libexif/exif-samples-master/jpg/Canon_40D_photoshop_import.jpg</span><br></pre></td></tr></table></figure>
+
+<p>使用afl-clang-lto作为编译器来构建 libexif</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_libexif/install</span><br><span class="line">cd $HOME/fuzzing_libexif/libexif-libexif-0_6_14-release/</span><br><span class="line">make clean</span><br><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>第一步还是删除之前的下载示例文件，再进行环境变量的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_libexif/exif-exif-0_6_15-release</span><br><span class="line">make clean</span><br><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; PKG_CONFIG_PATH=$HOME/fuzzing_libexif/install/lib/pkgconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>与上一步类似</p>
+<p>下面进行模糊测试</p>
+<p>如果遇到问题同AFL-1的解决方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">afl-fuzz -i $HOME/fuzzing_libexif/exif-samples-master/jpg/ -o $HOME/fuzzing_libexif/out/ -s 123 -- $HOME/fuzzing_libexif/install/bin/exif @@</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">echo core &gt;/proc/sys/kernel/core_pattern</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>core问题</p>
+<p>下面检测漏洞</p>
+<p>使用 Eclipse-CDT 进行调试</p>
+<h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3><ol>
+<li><p>本次漏洞出现在 libexif库中，需要exif作为调用它的应用程序，对应用程序进行模糊化。</p>
+</li>
+<li><p>afl-clang-lto与afl-clang-fast区别：</p>
+<p>afl-clang-fast 主要关注提高模糊测试的速度和性能。它通过减少插桩引入的开销以及对生成的代码进行优化，加速模糊测试的执行。</p>
+<p>afl-clang-lto 引入了 LTO（Link-Time Optimization，链接时优化）技术，它会在链接阶段对代码进行优化。这可以带来更大的性能提升，但在编译时可能会引入更多的开销，因为需要在链接之前对整个程序进行分析和优化。</p>
+<p>afl-clang-fast 适用于大多数模糊测试场景，尤其是在<strong>追求快速</strong>的模糊测试执行时。</p>
+<p>afl-clang-lto 适用于那些更关注<strong>性能和优化</strong>，愿意在编译阶段引入更多开销的场景。</p>
+</li>
+</ol>
 
       
     </div>
@@ -348,7 +404,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="01-AFL简介"><a href="#01-AFL简介" class="headerlink" title="01  AFL简介"></a>01  AFL简介</h2><p><code> tar xvf afl-latest.tgz</code></p>
+        <h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h3 id="0x1-AFL简介"><a href="#0x1-AFL简介" class="headerlink" title="0x1  AFL简介"></a>0x1  AFL简介</h3><p><code> tar xvf afl-latest.tgz</code></p>
 <img src="https://img1.imgtp.com/2023/08/05/ei42j3Np.png" alt="image-20230731140037021" style="zoom:80%;">
 
 <p><code>cd afl-2.52b sudo make &amp;&amp; sudo make install</code></p>
@@ -375,7 +431,7 @@
 <img src="https://img1.imgtp.com/2023/08/05/Sz9C8dyv.png" style="zoom:80%;">
 
 <p>后面发现-s无法进行 于是检查发现需要下载afl++</p>
-<h2 id="02-下载AFL"><a href="#02-下载AFL" class="headerlink" title="02 下载AFL++"></a>02 下载AFL++</h2><p>环境：</p>
+<h3 id="0x2-下载AFL"><a href="#0x2-下载AFL" class="headerlink" title="0x2 下载AFL++"></a>0x2 下载AFL++</h3><p>环境：</p>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> update</span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y build-essential python3-dev automake git flex bison libglib2.<span class="number">0</span>-dev libpixman-<span class="number">1</span>-dev python3-setuptools</span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y lld-<span class="number">11</span> llvm-<span class="number">11</span> llvm-<span class="number">11</span>-dev clang-<span class="number">11</span> || sudo apt-<span class="keyword">get</span> install -y lld llvm llvm-dev clang </span><br><span class="line">sudo apt-<span class="keyword">get</span> install -y gcc-$(gcc --version|head -n1|sed <span class="comment">&#x27;s/.* //&#x27;|sed &#x27;s/\..*//&#x27;)-plugin-dev libstdc++-$(gcc --version|head -n1|sed &#x27;s/.* //&#x27;|sed &#x27;s/\..*//&#x27;)-dev</span></span><br></pre></td></tr></table></figure>
 
 <p>检查并下载AFL++</p>
@@ -385,9 +441,9 @@
 <p>使用AFL++编译器编译代码 首先清理没用的文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_xpdf/install</span><br><span class="line">cd $HOME/fuzzing_xpdf/xpdf-3.02/</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
 
-<h2 id="03-使用-afl-clang-fast-编译器构建-xpdf"><a href="#03-使用-afl-clang-fast-编译器构建-xpdf" class="headerlink" title="03 使用 afl-clang-fast 编译器构建 xpdf"></a>03 使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="0x3-使用-afl-clang-fast-编译器构建-xpdf"><a href="#0x3-使用-afl-clang-fast-编译器构建-xpdf" class="headerlink" title="0x3 使用 afl-clang-fast 编译器构建 xpdf"></a>0x3 使用 <strong>afl-clang-fast</strong> 编译器构建 xpdf</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=$HOME/AFLplusplus/afl-clang-fast CXX=$HOME/AFLplusplus/afl-clang-fast++ ./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
-<h2 id="04-模糊测试"><a href="#04-模糊测试" class="headerlink" title="04 模糊测试"></a>04 模糊测试</h2><p>运行fuzzer</p>
+<h3 id="0x4-模糊测试"><a href="#0x4-模糊测试" class="headerlink" title="0x4 模糊测试"></a>0x4 模糊测试</h3><p>运行fuzzer</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1  afl-fuzz -i $HOME/fuzzing_xpdf/pdf_examples/ -o $HOME/fuzzing_xpdf/out/ -s 123 -- $HOME/fuzzing_xpdf/install/bin/pdftotext @@ $HOME/fuzzing_xpdf/output</span><br></pre></td></tr></table></figure>
 
 <p>解释：-i 表示我们必须放置输入用例的目录 -o 表示 AFL + + 将存储变异文件的目录</p>
@@ -396,7 +452,7 @@
 <p>等待找到漏洞</p>
 <img src="https://img1.imgtp.com/2023/08/05/fVvfCSvd.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;">
 
-<h2 id="05-漏洞分析"><a href="#05-漏洞分析" class="headerlink" title="05 漏洞分析"></a>05 漏洞分析</h2><p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
+<h3 id="0x5-漏洞分析"><a href="#0x5-漏洞分析" class="headerlink" title="0x5 漏洞分析"></a>0x5 漏洞分析</h3><p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
 <p><img src="https://img1.imgtp.com/2023/08/05/Tr5PgXOp.png" alt="image-20230805110110846"></p>
 <p>可以看出再次使用xpdf运行该文件时错误是堆栈溢出</p>
 <p><img src="https://img1.imgtp.com/2023/08/05/jkbLJvBE.png" alt="image-20230805110524898"></p>
@@ -409,7 +465,7 @@
 <p>详解：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40025866/article/details/127823491">https://blog.csdn.net/qq_40025866/article/details/127823491</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ruanx.net/fuzzing101-wp-1/">https://www.ruanx.net/fuzzing101-wp-1/</a> 关于复现更加详细的解释</p>
-<h2 id="06-实验心得"><a href="#06-实验心得" class="headerlink" title="06 实验心得"></a>06 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_xpdf &amp;&amp; cd fuzzing_xpdf/</span><br></pre></td></tr></table></figure>
 
 <p>初始时更新环境基础工具如make,gcc</p>
