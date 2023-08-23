@@ -96,6 +96,22 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>exercise-4</p>
+<p>libtiff</p>
+<p>首先解压并安装libtiff</p>
+<p><code>wget https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz</code><br><code>tar -xzvf tiff-4.0.4.tar.gz</code></p>
+<p><code>cd tiff-4.0.4/</code><br><code>./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</code><br><code>make</code><br><code>make install</code></p>
+<p>对<code>tiffinfo</code>位于<code>/bin</code>文件夹中的二进制文件进行模糊测试</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/83sMVaS4.png"></p>
+<p>上面的“-j -c -r -s -w” 是为了提高<strong>代码覆盖率</strong>并增加发现错误的机会，</p>
+<p>下面看一看此程序的代码覆盖率，使用htnl输出查看一下</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/1ERF1MGB.png"></p>
+<p>下面在启用 ASAN 的情况下编译 libtiff进行模糊测试：</p>
+<p><code>afl-fuzz -m none -i $HOME/fuzzing_tiff/tiff-4.0.4/test/images/ -o $HOME/fuzzing_tiff/out/ -s 123 -- $HOME/fuzzing_tiff/install/bin/tiffinfo -D -j -c -r -s -w @@</code></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/e8liZLOp.png"></p>
+<p>输入命令查看漏洞跟踪结果：</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/9XSNK2Tq.png"></p>
+<p>详细显示</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/KvEyKDpd.png"></p>
 
       
     </div>
