@@ -73,6 +73,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AFL-5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/23/AFL-5/" class="article-date">
+  <time class="dt-published" datetime="2023-08-23T05:18:19.000Z" itemprop="datePublished">2023-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/08/23/AFL-5/">AFL-5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>exercise-5</p>
+<p>LibXML2 XML 解析库</p>
+<p>下载并安装libxml2-2.9.4.tar.gz</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget http://xmlsoft.org/download/libxml2-2.9.4.tar.gz</span><br><span class="line">tar xvf libxml2-2.9.4.tar.gz &amp;&amp; cd libxml2-2.9.4/</span><br><span class="line">#安装</span><br><span class="line">sudo apt-get install python-dev</span><br><span class="line">CC=afl-clang-lto CXX=afl-clang-lto++ CFLAGS=&quot;-fsanitize=address&quot; CXXFLAGS=&quot;-fsanitize=address&quot; LDFLAGS=&quot;-fsanitize=address&quot; ./configure --prefix=&quot;$HOME/Fuzzing_libxml2/libxml2-2.9.4/install&quot; --disable-shared --without-debug --without-ftp --without-http --without-legacy --without-python LIBS=&#x27;-ldl&#x27;</span><br><span class="line">make -j$(nproc)</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>通过<code>./xmllint --memory ./test/wml.xml</code>检测后</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/hxYovSjF.png"></p>
+<p>下面创建XML字典例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir afl_in &amp;&amp; cd afl_in</span><br><span class="line">wget https://raw.githubusercontent.com/antonio-morales/Fuzzing101/main/Exercise%205/SampleInput.xml</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+
+<p>进行模糊测试</p>
+<p><code>afl-fuzz -m none -i ./afl_in -o afl_out -s 123 -x ./dictionaries/xml.dict -D -M master -- ./xmllint --memory --noenc --nocdata --dtdattr --loaddtd --valid --xinclude @@</code></p>
+<p>但是进行三天仍未成功</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/wmt3LqdA.png" alt="未完成"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/08/23/AFL-5/" data-id="cllnas5sk0000rou44j2t8xem" data-title="AFL-5" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AFL-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/08/23/AFL-4/" class="article-date">
@@ -562,6 +614,10 @@
       <ul>
         
           <li>
+            <a href="/2023/08/23/AFL-5/">AFL-5</a>
+          </li>
+        
+          <li>
             <a href="/2023/08/23/AFL-4/">AFL-4</a>
           </li>
         
@@ -575,10 +631,6 @@
         
           <li>
             <a href="/2023/07/31/AFL-1/">AFL-1</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/">how to give a good research talk_The structure of paper in Systems</a>
           </li>
         
       </ul>
