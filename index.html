@@ -189,13 +189,12 @@
       
         <p>exercise-4</p>
 <p>libtiff</p>
-<p>首先解压并安装libtiff</p>
-<p><code>wget https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz</code><br><code>tar -xzvf tiff-4.0.4.tar.gz</code></p>
-<p><code>cd tiff-4.0.4/</code><br><code>./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</code><br><code>make</code><br><code>make install</code></p>
+<h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h3 id="0x1-下载并解压libtiff"><a href="#0x1-下载并解压libtiff" class="headerlink" title="0x1 下载并解压libtiff"></a>0x1 下载并解压libtiff</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz</span><br><span class="line">tar -xzvf tiff-4.0.4.tar.gz</span><br><span class="line"></span><br><span class="line">cd tiff-4.0.4/</span><br><span class="line">./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <p>对<code>tiffinfo</code>位于<code>/bin</code>文件夹中的二进制文件进行模糊测试</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/83sMVaS4.png"></p>
 <p>上面的“-j -c -r -s -w” 是为了提高<strong>代码覆盖率</strong>并增加发现错误的机会，</p>
-<p>下面看一看此程序的代码覆盖率，使用htnl输出查看一下</p>
+<p>下面看一看此程序的代码覆盖率，使用html输出查看一下</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/1ERF1MGB.png"></p>
 <p>下面在启用 ASAN 的情况下编译 libtiff进行模糊测试：</p>
 <p><code>afl-fuzz -m none -i $HOME/fuzzing_tiff/tiff-4.0.4/test/images/ -o $HOME/fuzzing_tiff/out/ -s 123 -- $HOME/fuzzing_tiff/install/bin/tiffinfo -D -j -c -r -s -w @@</code></p>
@@ -204,7 +203,41 @@
 <p><img src="https://img1.imgtp.com/2023/08/23/9XSNK2Tq.png"></p>
 <p>详细显示</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/KvEyKDpd.png"></p>
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>创建一个新目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_tiff &amp;&amp; cd fuzzing_tiff/</span><br></pre></td></tr></table></figure>
 
+<p>下载并解压 libtiff 4.0.4：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.osgeo.org/libtiff/tiff-4.0.4.tar.gz</span><br><span class="line">tar -xzvf tiff-4.0.4.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 libtiff：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd tiff-4.0.4/</span><br><span class="line">./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_tiff/install/bin/tiffinfo -D -j -c -r -s -w $HOME/fuzzing_tiff/tiff-4.0.4/test/images/palette-1c-1b.tiff</span><br></pre></td></tr></table></figure>
+
+<p>通过使用代码覆盖率，我们将了解模糊器已到达代码的哪些部分，并可视化模糊测试过程。</p>
+<p>安装lcov</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install lcov</span><br></pre></td></tr></table></figure>
+
+<p>使用标志（编译器和链接器）重建 libTIFF <code>--coverage</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_tiff/install</span><br><span class="line">cd $HOME/fuzzing_tiff/tiff-4.0.4/</span><br><span class="line">make clean</span><br><span class="line">  </span><br><span class="line">CFLAGS=&quot;--coverage&quot; LDFLAGS=&quot;--coverage&quot; ./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>通过输入以下内容来收集代码覆盖率数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_tiff/tiff-4.0.4/</span><br><span class="line">lcov --zerocounters --directory ./</span><br><span class="line">lcov --capture --initial --directory ./ --output-file app.info</span><br><span class="line">$HOME/fuzzing_tiff/install/bin/tiffinfo -D -j -c -r -s -w $HOME/fuzzing_tiff/tiff-4.0.4/test/images/palette-1c-1b.tiff</span><br><span class="line">lcov --no-checksum --directory ./ --capture --output-file app2.info</span><br></pre></td></tr></table></figure>
+
+<p>生成 HTML 输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genhtml --highlight --legend -output-directory ./html-coverage/ ./app2.info</span><br></pre></td></tr></table></figure>
+
+<p>清理所有先前编译的目标文件和可执行文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_tiff/install</span><br><span class="line">cd $HOME/fuzzing_tiff/tiff-4.0.4/</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
+
+<p>在调用 make 之前设置 AFL_USE_ASAN&#x3D;1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --prefix=&quot;$HOME/fuzzing_tiff/install/&quot; --disable-shared</span><br><span class="line">AFL_USE_ASAN=1 make -j4</span><br><span class="line">AFL_USE_ASAN=1 make install</span><br></pre></td></tr></table></figure>
+
+<p>运行模糊器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">afl-fuzz -m none -i $HOME/fuzzing_tiff/tiff-4.0.4/test/images/ -o $HOME/fuzzing_tiff/out/ -s 123 -- $HOME/fuzzing_tiff/install/bin/tiffinfo -D -j -c -r -s -w @@</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3>
       
     </div>
     <footer class="article-footer">
@@ -258,7 +291,48 @@
 <p><img src="https://img1.imgtp.com/2023/08/23/bbjkvVOy.png"></p>
 <p>可以看到其详细崩溃过程</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/vb5pO2qK.png"></p>
-<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3>
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>创建新目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_tcpdump &amp;&amp; cd fuzzing_tcpdump/</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压tcpdump-4.9.2.tar.gz</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/the-tcpdump-group/tcpdump/archive/refs/tags/tcpdump-4.9.2.tar.gz</span><br><span class="line">tar -xzvf tcpdump-4.9.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>下载 TCPdump 所需的跨平台库 libpcap。下载并解压 libpcap-1.8.0.tar.gz：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/the-tcpdump-group/libpcap/archive/refs/tags/libpcap-1.8.0.tar.gz</span><br><span class="line">tar -xzvf libpcap-1.8.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>重命名<code>libpcap-libpcap-1.8.0</code>为<code>libpcap-1.8.0</code>. 否则，tcpdump找不到<code>libpcap.a</code>本地路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv libpcap-libpcap-1.8.0/ libpcap-1.8.0</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 libpcap：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_tcpdump/libpcap-1.8.0/</span><br><span class="line">./configure --enable-shared=no</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 tcpdump：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/</span><br><span class="line">./configure --prefix=&quot;$HOME/fuzzing_tcpdump/install/&quot;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>测试tcpdump</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_tcpdump/install/sbin/tcpdump -h</span><br></pre></td></tr></table></figure>
+
+<p>运行示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r ./tests/geneve.pcap</span><br></pre></td></tr></table></figure>
+
+<p>将构建启用 ASAN 的 tcpdump（和 libpcap）。</p>
+<p>仍然清理所有先前编译的目标文件和可执行文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm -r $HOME/fuzzing_tcpdump/install</span><br><span class="line">cd $HOME/fuzzing_tcpdump/libpcap-1.8.0/</span><br><span class="line">make clean</span><br><span class="line"></span><br><span class="line">cd $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
+
+<p><code>AFL_USE_ASAN=1</code>在调用<code>configure</code>and之前设置<code>make</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/fuzzing_tcpdump/libpcap-1.8.0/</span><br><span class="line">export LLVM_CONFIG=&quot;llvm-config-11&quot;</span><br><span class="line">CC=afl-clang-lto ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_tcpdump/install/&quot;</span><br><span class="line">AFL_USE_ASAN=1 make</span><br><span class="line"></span><br><span class="line">cd $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/</span><br><span class="line">AFL_USE_ASAN=1 CC=afl-clang-lto ./configure --prefix=&quot;$HOME/fuzzing_tcpdump/install/&quot;</span><br><span class="line">AFL_USE_ASAN=1 make</span><br><span class="line">AFL_USE_ASAN=1 make install</span><br></pre></td></tr></table></figure>
+
+<p>模糊测试时间</p>
+<p>运行模糊测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">afl-fuzz -m none -i $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/tests/ -o $HOME/fuzzing_tcpdump/out/ -s 123 -- $HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r @@</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意：64 位系统上的 ASAN 需要大量虚拟内存。所以设置了标志“-m none”来禁用 AFL 中的内存限制</strong></p>
+<h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3><ol>
+<li>ASan的工作原理是在程序的编译过程中，通过插入额外的代码来跟踪内存的使用情况。这些插入的代码会在运行时监测内存访问，检测到潜在的问题并生成报告。ASan会在检测到问题时停止程序的执行，然后输出有关问题位置、类型和调用栈信息的详细报告。</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
