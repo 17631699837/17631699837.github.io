@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="exercise-2 堆溢出和越界读取 1.构建并安装 libexif： cd libexif-libexif-0_6_14-release&#x2F; sudo apt-get install autopoint libtool gettext libpopt-dev autoreconf -fvi .&#x2F;configure --enable-shared&#x3D;no --prefix&#x3D;&quot;$HOME&#x2F;f">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/08/09/AFL-2/Users/%E6%9D%8E%E4%BD%B3%E8%89%BA/AppData/Roaming/Typora/typora-user-images/image-20230809151528275.png">
-<meta property="og:image" content="http://example.com/2023/08/09/AFL-2/Users/%E6%9D%8E%E4%BD%B3%E8%89%BA/AppData/Roaming/Typora/typora-user-images/image-20230809152518785.png">
-<meta property="og:image" content="http://example.com/2023/08/09/AFL-2/Users/%E6%9D%8E%E4%BD%B3%E8%89%BA/AppData/Roaming/Typora/typora-user-images/image-20230813204306294.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/MQSTeVzh.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/oulY3Hj7.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/U8rPe3il.png">
 <meta property="article:published_time" content="2023-08-09T05:54:45.000Z">
-<meta property="article:modified_time" content="2023-08-13T12:43:23.908Z">
+<meta property="article:modified_time" content="2023-08-23T04:28:40.733Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/08/09/AFL-2/Users/%E6%9D%8E%E4%BD%B3%E8%89%BA/AppData/Roaming/Typora/typora-user-images/image-20230809151528275.png">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/08/23/MQSTeVzh.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -106,10 +106,10 @@
 <p>1.构建并安装 libexif：</p>
 <p><code>cd libexif-libexif-0_6_14-release/ sudo apt-get install autopoint libtool gettext libpopt-dev autoreconf -fvi ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; make make install</code></p>
 <p>autoreconf -fvi 在软件项目中重新生成自动配置（Autoconf）和构建系统相关文件的命令</p>
-<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230809151528275.png" alt="image-20230809151528275"></p>
-<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230809152518785.png" alt="image-20230809152518785"></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/MQSTeVzh.png" alt="image-20230809151528275"></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/oulY3Hj7.png" alt="image-20230809152518785"></p>
 <p><code>afl-clang-lto</code> 使用了链接时间优化（Link-Time Optimization，简称LTO）的技术，可以在编译过程中对整个程序进行优化，提高模糊测试的效率和准确性。</p>
-<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230813204306294.png" alt="image-20230813204306294"></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/U8rPe3il.png" alt="image-20230813204306294"></p>
 
       
     </div>
