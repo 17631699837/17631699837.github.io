@@ -244,26 +244,21 @@
       
         <p>exercise-3</p>
 <p>TCPdump</p>
-<p>1.首先下载并解压tcpdump-4.9.2.tar.gz和跨平台库 libpcap</p>
-<p><code>wget https://github.com/the-tcpdump-group/tcpdump/archive/refs/tags/tcpdump-4.9.2.tar.gz</code><br><code>tar -xzvf tcpdump-4.9.2.tar.gz</code></p>
-<p><code>wget https://github.com/the-tcpdump-group/libpcap/archive/refs/tags/libpcap-1.8.0.tar.gz</code><br><code>tar -xzvf libpcap-1.8.0.tar.gz</code></p>
-<p>安装后进行检测</p>
+<h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h3 id="0x1-下载并解压tcpdump和libpcap"><a href="#0x1-下载并解压tcpdump和libpcap" class="headerlink" title="0x1 下载并解压tcpdump和libpcap"></a>0x1 下载并解压tcpdump和libpcap</h3><p>安装后进行检测</p>
 <p><code>$HOME/fuzzing_tcpdump/install/sbin/tcpdump -h</code></p>
 <p><img src="https://img1.imgtp.com/2023/08/23/cPqroK8T.png" alt="b8b8d298c67fd4bd2d03e9aba31ae0b"></p>
-<p>下面找到很多.pcacp示例</p>
-<p>使用命令进行检测</p>
+<h3 id="0x2-找到-pcacp示例"><a href="#0x2-找到-pcacp示例" class="headerlink" title="0x2 找到.pcacp示例"></a>0x2 找到.pcacp示例</h3><p>使用命令进行检测</p>
 <p><code>$HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r ./tests/geneve.pcap</code></p>
 <p><img src="https://img1.imgtp.com/2023/08/23/Q0UtQW9H.png" alt="b39f9d9cc84c9e57edf875c993584b1"></p>
-<p>下面使用<strong>Afl-clang-lto 编译</strong></p>
+<h3 id="0x3-模糊测试"><a href="#0x3-模糊测试" class="headerlink" title="0x3 模糊测试"></a>0x3 模糊测试</h3><p>下面使用<strong>Afl-clang-lto 编译</strong></p>
 <p>最终进行模糊测试得到crashes</p>
 <p><code>afl-fuzz -m none -i $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/tests/ -o $HOME/fuzzing_tcpdump/out/ -s 123 -- $HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r @@</code></p>
 <p><img src="https://img1.imgtp.com/2023/08/23/ixUouKaY.png" alt="3337b9e14cf676b234dfbc314b5dae7"></p>
-<p>下面查找漏洞原因</p>
-<p>$HOME&#x2F;fuzzing_tcpdump&#x2F;install&#x2F;sbin&#x2F;tcpdump -vvvvXX -ee -nn -r ‘&#x2F;home&#x2F;antonio&#x2F;fuzzing_tcpdump&#x2F;out&#x2F;default&#x2F;crashes&#x2F;test’</p>
+<h3 id="0x4-查找漏洞原因"><a href="#0x4-查找漏洞原因" class="headerlink" title="0x4 查找漏洞原因"></a>0x4 查找漏洞原因</h3><p><code>$HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r &#39;/home/antonio/fuzzing_tcpdump/out/default/crashes/test&#39;</code></p>
 <p><img src="https://img1.imgtp.com/2023/08/23/bbjkvVOy.png"></p>
 <p>可以看到其详细崩溃过程</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/vb5pO2qK.png"></p>
-
+<h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3>
       
     </div>
     <footer class="article-footer">
@@ -316,6 +311,8 @@
 <p><img src="https://img1.imgtp.com/2023/08/23/oulY3Hj7.png" alt="image-20230809152518785"></p>
 <h3 id="0x3-作为编译器afl-clang-lto构建-libexif"><a href="#0x3-作为编译器afl-clang-lto构建-libexif" class="headerlink" title="0x3 作为编译器afl-clang-lto构建 libexif"></a>0x3 作为编译器<strong>afl-clang-lto</strong>构建 libexif</h3><p><code>afl-clang-lto</code> 使用了链接时间优化（Link-Time Optimization，简称LTO）的技术，可以在编译过程中对整个程序进行优化，提高模糊测试的效率和准确性。</p>
 <p><img src="https://img1.imgtp.com/2023/08/23/U8rPe3il.png" alt="image-20230813204306294"></p>
+<p>使用eclipse对crashes进行分析</p>
+<p><img src="https://img1.imgtp.com/2023/08/23/7tZX9KFI.png" alt="image-20230823163507701"></p>
 <h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1-代码应用方面"><a href="#0x1-代码应用方面" class="headerlink" title="0x1 代码应用方面"></a>0x1 代码应用方面</h3><p>每个实验的文件夹</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir fuzzing_libexif &amp;&amp; cd fuzzing_libexif/</span><br></pre></td></tr></table></figure>
 
