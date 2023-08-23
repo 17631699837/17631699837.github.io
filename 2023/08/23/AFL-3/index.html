@@ -4,15 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>Archives | Hexo</title>
+  <title>AFL-3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="exercise-3 TCPdump 1.首先下载并解压tcpdump-4.9.2.tar.gz和跨平台库 libpcap wget https:&#x2F;&#x2F;github.com&#x2F;the-tcpdump-group&#x2F;tcpdump&#x2F;archive&#x2F;refs&#x2F;tags&#x2F;tcpdump-4.9.2.tar.gztar -xzvf tcpdump-4.9.2.tar.gz wget https:&#x2F;&#x2F;github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFL-3">
+<meta property="og:url" content="http://example.com/2023/08/23/AFL-3/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="exercise-3 TCPdump 1.首先下载并解压tcpdump-4.9.2.tar.gz和跨平台库 libpcap wget https:&#x2F;&#x2F;github.com&#x2F;the-tcpdump-group&#x2F;tcpdump&#x2F;archive&#x2F;refs&#x2F;tags&#x2F;tcpdump-4.9.2.tar.gztar -xzvf tcpdump-4.9.2.tar.gz wget https:&#x2F;&#x2F;github">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/cPqroK8T.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/Q0UtQW9H.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/08/23/ixUouKaY.png">
+<meta property="article:published_time" content="2023-08-23T04:32:15.000Z">
+<meta property="article:modified_time" content="2023-08-23T04:44:56.528Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/08/23/cPqroK8T.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -71,134 +79,68 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/08/23/AFL-3/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-08-23T04:32:15.000Z" itemprop="datePublished">Aug 23</time>
+        <section id="main"><article id="post-AFL-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/23/AFL-3/" class="article-date">
+  <time class="dt-published" datetime="2023-08-23T04:32:15.000Z" itemprop="datePublished">2023-08-23</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/23/AFL-3/">AFL-3</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      AFL-3
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/08/09/AFL-2/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-08-09T05:54:45.000Z" itemprop="datePublished">Aug 9</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/09/AFL-2/">AFL-2</a>
-    </h1>
-  
+        <p>exercise-3</p>
+<p>TCPdump</p>
+<p>1.首先下载并解压tcpdump-4.9.2.tar.gz和跨平台库 libpcap</p>
+<p><code>wget https://github.com/the-tcpdump-group/tcpdump/archive/refs/tags/tcpdump-4.9.2.tar.gz</code><br><code>tar -xzvf tcpdump-4.9.2.tar.gz</code></p>
+<p><code>wget https://github.com/the-tcpdump-group/libpcap/archive/refs/tags/libpcap-1.8.0.tar.gz</code><br><code>tar -xzvf libpcap-1.8.0.tar.gz</code></p>
+<p>安装后进行检测</p>
+<p><code>$HOME/fuzzing_tcpdump/install/sbin/tcpdump -h</code></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/cPqroK8T.png" alt="b8b8d298c67fd4bd2d03e9aba31ae0b"></p>
+<p>下面找到很多.pcacp示例</p>
+<p>使用命令进行检测</p>
+<p><code>$HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r ./tests/geneve.pcap</code></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/Q0UtQW9H.png" alt="b39f9d9cc84c9e57edf875c993584b1"></p>
+<p>下面使用<strong>Afl-clang-lto 编译</strong></p>
+<p>最终进行模糊测试得到crashes</p>
+<p><code>afl-fuzz -m none -i $HOME/fuzzing_tcpdump/tcpdump-tcpdump-4.9.2/tests/ -o $HOME/fuzzing_tcpdump/out/ -s 123 -- $HOME/fuzzing_tcpdump/install/sbin/tcpdump -vvvvXX -ee -nn -r @@</code></p>
+<p><img src="https://img1.imgtp.com/2023/08/23/ixUouKaY.png" alt="3337b9e14cf676b234dfbc314b5dae7"></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/31/AFL-1/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-07-31T05:22:29.000Z" itemprop="datePublished">Jul 31</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/31/AFL-1/">AFL-1</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-07-10T02:06:42.000Z" itemprop="datePublished">Jul 10</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/08/23/AFL-3/" data-id="clln947p700008ku4b0rcdrvo" data-title="AFL-3" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/10/how-to-give-a-good-research-talk-The-structure-of-paper-in-Systems/">how to give a good research talk_The structure of paper in Systems</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/10/1/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-07-09T19:36:48.000Z" itemprop="datePublished">Jul 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/10/1/">1</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/07/10/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-07-09T18:25:29.562Z" itemprop="datePublished">Jul 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/08/09/AFL-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AFL-2</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
