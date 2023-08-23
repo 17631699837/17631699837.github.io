@@ -73,6 +73,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AFL-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/08/09/AFL-2/" class="article-date">
+  <time class="dt-published" datetime="2023-08-09T05:54:45.000Z" itemprop="datePublished">2023-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/08/09/AFL-2/">AFL-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>exercise-2</p>
+<p>堆溢出和越界读取</p>
+<p>1.构建并安装 libexif：</p>
+<p><code>cd libexif-libexif-0_6_14-release/ sudo apt-get install autopoint libtool gettext libpopt-dev autoreconf -fvi ./configure --enable-shared=no --prefix=&quot;$HOME/fuzzing_libexif/install/&quot; make make install</code></p>
+<p>autoreconf -fvi 在软件项目中重新生成自动配置（Autoconf）和构建系统相关文件的命令</p>
+<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230809151528275.png" alt="image-20230809151528275"></p>
+<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230809152518785.png" alt="image-20230809152518785"></p>
+<p><code>afl-clang-lto</code> 使用了链接时间优化（Link-Time Optimization，简称LTO）的技术，可以在编译过程中对整个程序进行优化，提高模糊测试的效率和准确性。</p>
+<p><img src="/2023/08/09/AFL-2/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230813204306294.png" alt="image-20230813204306294"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/08/09/AFL-2/" data-id="clln88qwz0000fgu47fsrbtqx" data-title="AFL-2" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-AFL-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/07/31/AFL-1/" class="article-date">
@@ -97,30 +144,30 @@
       
         <p>AFL简介</p>
 <p><code> tar xvf afl-latest.tgz</code></p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140037021.png" alt="image-20230731140037021" style="zoom:80%;">
+<img src="https://img1.imgtp.com/2023/08/05/ei42j3Np.png" alt="image-20230731140037021" style="zoom:80%;">
 
 <p><code>cd afl-2.52b sudo make &amp;&amp; sudo make install</code></p>
 <p>执行完三条命令后</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731140207486.png" alt="image-20230731140207486" style="zoom:80%;">
+<img src="https://img1.imgtp.com/2023/08/05/IEpgbmN0.png" alt="image-20230731140207486" style="zoom:80%;">
 
 <p>可以看到afl成功下载</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731141408035.png" alt="image-20230731141408035" style="zoom:80%;">
+<img src="https://img1.imgtp.com/2023/08/05/P7KkyF0d.png" alt="image-20230731141408035" style="zoom:80%;">
 
 <p>再下载XPDF</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731184215275.png" alt="image-20230731184215275" style="zoom:67%;">
+<img src="https://img1.imgtp.com/2023/08/05/rCQ1lzn8.png" alt="image-20230731184215275" style="zoom:67%;">
 
 <p>后面出现问题 改成ubuntuFuzz继续做</p>
 <p>先下载afl</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804221002348.png" alt="image-20230804221002348" style="zoom:80%;">
+<img src="https://img1.imgtp.com/2023/08/05/wKxGdbzJ.png" alt="image-20230804221002348" style="zoom:80%;">
 
 <p>再下载xpdf</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165131314.png" style="zoom:67%;">
+<img src="https://img1.imgtp.com/2023/08/05/6iSpLQnF.png" style="zoom:67%;">
 
 <p>执行<code>./configure --prefix=&quot;$HOME/fuzzing_xpdf/install/&quot;</code></p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804165910916.png" alt="image-20230804165910916" style="zoom:67%;">
+<img src="https://img1.imgtp.com/2023/08/05/m1ILuqF0.png" alt="image-20230804165910916" style="zoom:67%;">
 
 <p>下载几个文件进行验证</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230804172159911.png" style="zoom:80%;">
+<img src="https://img1.imgtp.com/2023/08/05/Sz9C8dyv.png" style="zoom:80%;">
 
 <p>后面发现-s无法进行 于是检查发现需要下载afl++</p>
 <p>环境：</p>
@@ -135,19 +182,19 @@
 <p>运行fuzzer</p>
 <p><code>AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1  afl-fuzz -i $HOME/fuzzing_xpdf/pdf_examples/ -o $HOME/fuzzing_xpdf/out/ -s 123 -- $HOME/fuzzing_xpdf/install/bin/pdftotext @@ $HOME/fuzzing_xpdf/output</code></p>
 <p>解释：-i 表示我们必须放置输入用例的目录 -o 表示 AFL + + 将存储变异文件的目录</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Local\Temp\WeChat Files\9d64cbc5501f607c00d5f3839f3a1d8.png" alt="9d64cbc5501f607c00d5f3839f3a1d8" style="zoom: 67%;">
+<img src="https://img1.imgtp.com/2023/08/05/nztNxZl0.png" alt="9d64cbc5501f607c00d5f3839f3a1d8" style="zoom: 67%;">
 
 <p>等待找到漏洞</p>
-<img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Local\Temp\WeChat Files\d2c779b1034bc010bebe3d9c7748119.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;">
+<img src="https://img1.imgtp.com/2023/08/05/fVvfCSvd.png" alt="d2c779b1034bc010bebe3d9c7748119" style="zoom: 67%;">
 
 <p>进行漏洞分析 这是运行后找到的其中一个漏洞</p>
-<p><img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110110846.png" alt="image-20230805110110846"></p>
+<p><img src="https://img1.imgtp.com/2023/08/05/Tr5PgXOp.png" alt="image-20230805110110846"></p>
 <p>可以看出再次使用xpdf运行该文件时错误是堆栈溢出</p>
-<p><img src="/2023/07/31/AFL-1/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230805110524898.png" alt="image-20230805110524898"></p>
+<p><img src="https://img1.imgtp.com/2023/08/05/jkbLJvBE.png" alt="image-20230805110524898"></p>
 <p>再使用gdb调试</p>
-<p><img src="/2023/07/31/AFL-1/Users\李佳艺\Downloads\1.png"></p>
+<p><img src="https://img1.imgtp.com/2023/08/05/wKxGdbzJ.png"></p>
 <p>运行后查看函数栈</p>
-<p><img src="/2023/07/31/AFL-1/Users\李佳艺\Downloads\2.png"></p>
+<p><img src="https://img1.imgtp.com/2023/08/05/rsicPbL8.png"></p>
 <p>可以看出一直不停循环 本次漏洞CVE-2019-13288通过使程序中每个被调用的函数都在堆栈上分配一个堆栈帧，如果一个函数被递归调用太多次，就会导致堆栈内存耗尽和程序崩溃。</p>
 <p>漏洞修复<a target="_blank" rel="noopener" href="https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672">https://github.com/Ruanxingzhi/Fuzzing101/commit/57d37c2a1ea91a30fa825068d14db48335190672</a></p>
 <p>详解：</p>
@@ -388,7 +435,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
     </div>
   </div>
 
@@ -399,6 +446,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/08/09/AFL-2/">AFL-2</a>
+          </li>
         
           <li>
             <a href="/2023/07/31/AFL-1/">AFL-1</a>
