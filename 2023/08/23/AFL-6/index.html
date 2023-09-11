@@ -1,224 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>AFL-6 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="exercise-6 GIMP">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="exercise-6 GIMP01 实验过程02 实验心得0x1代码应用方面创建目录： 12cd $HOMEmkdir Fuzzing_gimp &amp;&amp; cd Fuzzing_gimp  现在，安装所需的依赖项： 1sudo apt-get install build-essential libatk1.0-dev libfontconfig1-dev libcairo2-dev l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AFL-6">
 <meta property="og:url" content="http://example.com/2023/08/23/AFL-6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="exercise-6 GIMP">
+<meta property="og:description" content="exercise-6 GIMP01 实验过程02 实验心得0x1代码应用方面创建目录： 12cd $HOMEmkdir Fuzzing_gimp &amp;&amp; cd Fuzzing_gimp  现在，安装所需的依赖项： 1sudo apt-get install build-essential libatk1.0-dev libfontconfig1-dev libcairo2-dev l">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-23T05:35:29.000Z">
-<meta property="article:modified_time" content="2023-08-23T06:22:39.042Z">
+<meta property="article:modified_time" content="2023-09-01T14:21:13.086Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="canonical" href="http://example.com/2023/08/23/AFL-6/">
 
-  
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/23/AFL-6/","path":"2023/08/23/AFL-6/","title":"AFL-6"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AFL-6 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
     </div>
   </div>
-</header>
 
-      <div class="outer">
-        <section id="main"><article id="post-AFL-6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/08/23/AFL-6/" class="article-date">
-  <time class="dt-published" datetime="2023-08-23T05:35:29.000Z" itemprop="datePublished">2023-08-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      AFL-6
-    </h1>
-  
+  <div class="site-meta">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>exercise-6</p>
-<p>GIMP</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/08/23/AFL-6/" data-id="cllncwe89000028u43j6e6g0o" data-title="AFL-6" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2023/08/23/AFL-5/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">AFL-5</div>
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
     </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
-    </div>
   </div>
 
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
 
+
+
+
+
+
+
+</header>
+        
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/08/23/AFL-6/">AFL-6</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/23/AFL-5/">AFL-5</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/23/AFL-4/">AFL-4</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/23/AFL-3/">AFL-3</a>
-          </li>
-        
-          <li>
-            <a href="/2023/08/09/AFL-2/">AFL-2</a>
-          </li>
-        
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
       </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GIMP"><span class="nav-number">1.</span> <span class="nav-text">GIMP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">01 实验过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E5%AE%9E%E9%AA%8C%E5%BF%83%E5%BE%97"><span class="nav-number">1.2.</span> <span class="nav-text">02 实验心得</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1%E4%BB%A3%E7%A0%81%E5%BA%94%E7%94%A8%E6%96%B9%E9%9D%A2"><span class="nav-number">1.2.1.</span> <span class="nav-text">0x1代码应用方面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x2-%E5%B7%A5%E5%85%B7%E7%90%86%E8%A7%A3%E6%96%B9%E9%9D%A2"><span class="nav-number">1.2.2.</span> <span class="nav-text">0x2 工具理解方面</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+  </nav>
+</div>
+
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+
+    
+  </aside>
+
 
     </div>
-    <nav id="mobile-nav">
+
+    <div class="main-inner post posts-expand">
+
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+
+<div class="post-block">
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
   
-</nav>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/23/AFL-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AFL-6 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AFL-6
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-23 13:35:29" itemprop="dateCreated datePublished" datetime="2023-08-23T13:35:29+08:00">2023-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-09-01 22:21:13" itemprop="dateModified" datetime="2023-09-01T22:21:13+08:00">2023-09-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>exercise-6</p>
+<h1 id="GIMP"><a href="#GIMP" class="headerlink" title="GIMP"></a>GIMP</h1><h2 id="01-实验过程"><a href="#01-实验过程" class="headerlink" title="01 实验过程"></a>01 实验过程</h2><h2 id="02-实验心得"><a href="#02-实验心得" class="headerlink" title="02 实验心得"></a>02 实验心得</h2><h3 id="0x1代码应用方面"><a href="#0x1代码应用方面" class="headerlink" title="0x1代码应用方面"></a>0x1代码应用方面</h3><p>创建目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME</span><br><span class="line">mkdir Fuzzing_gimp &amp;&amp; cd Fuzzing_gimp</span><br></pre></td></tr></table></figure>
+
+<p>现在，安装所需的依赖项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libatk1.0-dev libfontconfig1-dev libcairo2-dev libgudev-1.0-0 libdbus-1-dev libdbus-glib-1-dev libexif-dev libxfixes-dev libgtk2.0-dev python2.7-dev libpango1.0-dev libglib2.0-dev zlib1g-dev intltool libbabl-dev</span><br></pre></td></tr></table></figure>
+
+<p><strong>GEGL 0.2（通用图形库）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.gimp.org/pub/gegl/0.2/gegl-0.2.0.tar.bz2</span><br><span class="line">tar xvf gegl-0.2.0.tar.bz2 &amp;&amp; cd gegl-0.2.0</span><br></pre></td></tr></table></figure>
+
+<p>源代码更改：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/CODEC_CAP_TRUNCATED/AV_CODEC_CAP_TRUNCATED/g&#x27; ./operations/external/ff-load.c</span><br><span class="line">sed -i &#x27;s/CODEC_FLAG_TRUNCATED/AV_CODEC_FLAG_TRUNCATED/g&#x27; ./operations/external/ff-load.c</span><br></pre></td></tr></table></figure>
+
+<p>构建并安装 Gegl-0.2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-debug --disable-glibtest  --without-vala --without-cairo --without-pango --without-pangocairo --without-gdk-pixbuf --without-lensfun --without-libjpeg --without-libpng --without-librsvg --without-openexr --without-sdl --without-libopenraw --without-jasper --without-graphviz --without-lua --without-libavformat --without-libv4l --without-libspiro --without-exiv2 --without-umfpack</span><br><span class="line">make -j$(nproc)</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>下载并解压 GIMP 2.8.16：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">wget https://mirror.klaus-uwe.me/gimp/pub/gimp/v2.8/gimp-2.8.16.tar.bz2</span><br><span class="line">tar xvf gimp-2.8.16.tar.bz2 &amp;&amp; cd gimp-2.8.16/</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用afl-clang-lto</strong>作为编译器构建 GIMP 的时间：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CC=afl-clang-lto CXX=afl-clang-lto++ PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/Fuzzing_gimp/gegl-0.2.0/ CFLAGS=&quot;-fsanitize=address&quot; CXXFLAGS=&quot;-fsanitize=address&quot; LDFLAGS=&quot;-fsanitize=address&quot; ./configure --disable-gtktest --disable-glibtest --disable-alsatest --disable-nls --without-libtiff --without-libjpeg --without-bzip2 --without-gs --without-libpng --without-libmng --without-libexif --without-aa --without-libxpm --without-webkit --without-librsvg --without-print --without-poppler --without-cairo-pdf --without-gvfs --without-libcurl --without-wmf --without-libjasper --without-alsa --without-gudev --disable-python --enable-gimp-console --without-mac-twain --without-script-fu --without-gudev --without-dbus --disable-mp --without-linux-input --without-xvfb-run --with-gif-compression=none --without-xmc --with-shm=none --enable-debug  --prefix=&quot;$HOME/Fuzzing_gimp/gimp-2.8.16/install&quot;</span><br><span class="line">make -j$(nproc)</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>将[SampleInput.xcf](<a target="_blank" rel="noopener" href="https://github.com/antonio-morales/Fuzzing101/blob/main/Exercise">https://github.com/antonio-morales/Fuzzing101/blob/main/Exercise</a> 6&#x2F;SampleInput.xcf)文件复制到 AFL 输入文件夹</p>
+<h3 id="0x2-工具理解方面"><a href="#0x2-工具理解方面" class="headerlink" title="0x2 工具理解方面"></a>0x2 工具理解方面</h3><ol>
+<li><p>“AFL 持久模式” 的核心思想是在单个目标程序运行的上下文中执行多个测试用例，从而减少了每次运行的开销。在这种模式下，AFL 会将不同的测试用例依次输入目标程序，并保留目标程序的运行状态，然后继续执行下一个测试用例，而不需要重新启动目标程序。这种方式可以节省大量的时间和资源，从而加快模糊测试的速度。</p>
+</li>
+<li></li>
+</ol>
+
+    </div>
+
+    
+    
     
 
+    <footer class="post-footer">
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/23/AFL-5/" rel="prev" title="AFL-5">
+                  <i class="fa fa-angle-left"></i> AFL-5
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
 
 
 
 
 
-  </div>
 </body>
 </html>
